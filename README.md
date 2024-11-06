@@ -11,7 +11,7 @@ Dans ce tutoriel, nous verrez comment :
 * **[1. Installation de l'assistant de code Github Copilot][Installation]**
 * **[2. Prise en main de l'assistant de code : premiers pas sur un exemple simple][contenu_partie_2]**
 * **[3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple][contenu_partie_3]**
-* **[xxxx][contenu_partie_4]**
+* **[4. Quid d'un assistant de code pour la reprise d'un projet complexe existant (legacy code)][contenu_partie_4]**
 
 Et vous trouverez [quelques liens utiles](.....) consultés pendant la rédaction de ce tutoriel.
 

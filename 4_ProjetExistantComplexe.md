@@ -1,21 +1,37 @@
 # 4. Quid d'un assistant de code pour la reprise d'un projet complexe existant (legacy code)
 
-[4.1 Avoir une vision et une compréhension globale du projet](#4-quid-dun-assistant-de-code-pour-la-reprise-dun-projet-complexe-existant-legacy-code)
+---
 
-- [4.1.a Première vision globale du projet](#41a-première-vision-globale-du-projet)
-- [4.1.b Garder une trace de la vision globale du projet dans un README](#41b-garder-une-trace-de-la-vision-globale-du-projet-dans-un-readme)
-- [4.1.c Approfondir la vision globale du projet](#41c-approfondir-la-vision-globale-du-projet)
-        - [Explorer les points d'entrée du système](#explorer-les-points-dentrée-du-système)
-        - [Explorer le métier](#explorer-le-métier)
-            &#8594; [Zoom sur la classe `WordAnalyticsService`](#zoom-sur-la-classe-wordanalyticsservice)
-            &#8594; [IDE ou Assistant ?](#ide-ou-assistant-)
-            &#8594; [Zoom sur la classe `FileReader`](#zoom-sur-la-classe-filereader)
-            &#8594; [Zoom sur la classe `JavaFileParser`](#zoom-sur-la-classe-javafileparser)
-            &#8594; [Essayer de comprendre rapidement un choix de conception](#essayer-de-comprendre-rapidement-un-choix-de-conception)
-        - [Vision plus globale du métier (module `common`)](#vision-plus-globale-du-métier-module-common)
-        - [Vision plus globale du projet et précision des réponses](#vision-plus-globale-du-métier-module-common)
+- [4.1 Avoir une vision et une compréhension globale du projet](#4-quid-dun-assistant-de-code-pour-la-reprise-dun-projet-complexe-existant-legacy-code)
 
-[4.2 Mettre en place un environnement de développement fonctionnel](#41c-approfondir-la-vision-globale-du-projet)
+  - [4.1.a Première vision globale du projet](#41a-première-vision-globale-du-projet)
+  - [4.1.b Garder une trace de la vision globale du projet dans un README](#41b-garder-une-trace-de-la-vision-globale-du-projet-dans-un-readme)
+  - [4.1.c Approfondir la vision globale du projet](#41c-approfondir-la-vision-globale-du-projet)
+    - [Explorer les points d'entrée du système](#explorer-les-points-dentrée-du-système)
+    - [Explorer le métier](#explorer-le-métier)  
+        ([classe `WordAnalyticsService`](#zoom-sur-la-classe-wordanalyticsservice), [classe `FileReader`](#zoom-sur-la-classe-filereader) , [classe `JavaFileParser`](#zoom-sur-la-classe-javafileparser),  
+         [essayer de comprendre rapidement un choix de conception](#essayer-de-comprendre-rapidement-un-choix-de-conception))
+    - [Vision plus globale du métier (module `common`)](#vision-plus-globale-du-métier-module-common)  
+    - [Vision plus globale du projet et précision des réponses](#vision-plus-globale-du-métier-module-common)  
+
+- [4.2 Mettre en place un environnement de développement fonctionnel](#41c-approfondir-la-vision-globale-du-projet)
+
+- [4.3 Améliorer la qualité de code d'un projet existant](#43-améliorer-la-qualité-de-code-dun-projet-existant)
+  - [4.3.a Bien comprendre les choix de conception et le code existant](#43a-bien-comprendre-les-choix-de-conception-et-le-code-existant)
+    - [Se rafraîchir la mémoire sur le comportement de la classe](#se-rafraîchir-la-mémoire-sur-le-comportement-de-la-classe-)
+    - [Explorer le concept d'AST (Abstract Syntax Tree)](#explorer-le-concept-dast-abstract-syntax-tree)  
+    - [Comprendre l'implémentation de l'AST dans `JavaFileParser`](#comprendre-limplémentation-de-last-dans-javafileparser)
+    - [Explorer la méthode `processFile`](#explorer-la-méthode-processfile)  
+    - [Le Pattern Visiteur et `VoidVisitorPattern`](#le-pattern-visiteur-et-voidvisitorpattern)
+  - [4.3.b Aider à la mise en place de nouveaux tests unitaires](#43b-aider-à-la-mise-en-place-de-nouveaux-tests-unitaires)
+    - [Améliorer la couverture de code de la classe `WordAnalyticsService`](#1-améliorer-la-couverture-de-code-de-la-classe-wordanalyticsservice)
+    - [Tester la classe `JavaFileParser`](#2-tester-la-classe-javafileparser)
+  - [4.3.c Aider au refactoring](#43c-aider-au-refactoring)
+  - [4.3.d Aider à la revue de code](#43d-aider-à-la-revue-de-code)
+
+- [4.4 Proposer des pistes d'amélioration sur des problématiques sensibles](#44-proposer-des-pistes-damélioration-sur-des-problématiques-sensibles)
+  
+  ---
 
 Dans un article récent intitulé [Legacy Modernization meets GenAI](https://martinfowler.com/articles/legacy-modernization-gen-ai.html), Martin Fowler a écrit :  
 > *Jusqu'à présent, la majorité de l'attention portée à l'intelligence artificielle générative (GenAI) dans le développement logiciel est axée sur la génération de code. Mais nous croyons qu'il y a autant, voire plus, de valeur dans la compréhension du code existant - en particulier des systèmes hérités complexes, volumineux et anciens.*
@@ -263,3 +279,231 @@ Si nécessaire, n'hésitez pas à solliciter son aide en lui posant, par exemple
 - `Comment lancer le main du module cli depuis l'IDE ?`
 - `Comment lancer le main du module cli depuis l'IDE en passant le chemin absolu du fichier WordAnalyticsService.java comme paramètre ?`
 - `[...]` Continuez éventuellement cette discussion en fonction de vos besoins et de votre expérience si vous avez besoin d'informations supplémentaires pour arriver à vos fins, c'est-à-dire obtenir des affichages similaires aux captures d'écran ci-dessus.
+
+## 4.3 Améliorer la qualité de code d'un projet existant
+
+Pour cette dernière partie, nous allons nous focaliser sur la classe `JavaFileParser`.
+Commencez par **ouvrir la classe `JavaFileParser`.**
+
+### 4.3.a Bien comprendre les choix de conception et le code existant
+
+Avant de procéder à un quelconque refactoring pour améliorer la qualité du code de cette classe, il est essentiel de bien comprendre le comportement de cette classe et d'avoir une *bonne* vision du code existant.
+
+#### Se rafraîchir la mémoire sur le comportement de la classe :**  
+
+  Vous avez déjà eu de nombreuses interactions avec cette classe ; une simple question à votre assistant de code devrait vous aider à vous rafraîchir la mémoire :
+
+- `Pourquoi la classe JavaFileParser ? Réponds-moi en français.`
+
+> **Remarque :** Au cours de vos précédents échanges avec votre assistant, outre les hallucinations, vous avez sûrement observé des comportements étranges dans les réponses de votre assistant (encore une fois dus au côté probabiliste des modèles de langage (LLM) et à leur entraînement). Par exemple :
+>
+> - Si vous posez une question en anglais, l'assistant répond généralement en anglais.
+> - Si vous posez une question en français, la réponse peut être en français, en anglais, ou même en "franglais"(des mots anglais perdus dans le français). Ainsi si vous souhaitez absolument une réponse en français, mieux vaut le préciser au début de votre prompt...
+
+#### Explorer le concept d'AST (Abstract Syntax Tree)  
+
+Dans la réponse de l'assistant, vous avez surement vu apparaître le terme **AST**.  
+Vous pouvez approfondir ce concept avec des questions telles que :
+
+- `Peux-tu m'expliquer ce qu'est un AST ? (en français)`
+- `Peux-tu me donner des exemples précis d'AST ?`
+- `[...]`
+  
+#### Comprendre l'implémentation de l'AST dans `JavaFileParser`
+
+  Pour aller plus loin, vous pouvez demander :  
+
+- `Où et comment l'AST est-il implémenté dans la classe JavaFileParser ?`
+
+#### Explorer la méthode `processFile`  
+
+  En analysant les réponses de l'assistant, vous avez probablement relevé des termes métiers et des extraits de code liés à la méthode `processFile`. Vous décidez donc d'en savoir un peu plus sur cette implémentation :
+
+- `Peux-tu m'expliquer le code de processFile`
+
+#### Le Pattern Visiteur et `VoidVisitorPattern`  
+
+  La réponse de l'assistant mentionne sûrement les termes **visiteur** et `VoidVisitorPattern`. Le pattern visiteur du GoF (Gang of Four) vous est peut-être familier, et dans le code de `processFile`, vous avez remarqué des méthodes `accept` et `visit`, caractéristiques de ce pattern. Mais quel est donc ce pattern ? Y-a-il un lien avec le pattern du GoF ? Pour clarifier, demandez :
+
+- `Peux-tu m'en dire plus sur le VoidVisitorAdapter ?`
+
+> **Rappel :** Pour consulter le code de la classe `VoidVisitorAdapter`, pas besoin d'utiliser l'assistant de code ; l'IDE est bien sûr votre ami pour ce cas d'usage. Depuis le code de la classe `JavaFileParser`, un simple **CTRL+clic** sur `VoidVisitorAdapter` ouvrira le code de cette classe. Vous pourrez ainsi visualiser toutes les méthodes `visit` qu'elle contient et observer également qu'elle implémente `VoidVisitor`.
+
+Après ces échanges, l'implémentation de la méthode `processFile` devrait vous paraître plus claire et correcte.
+
+### 4.3.b Aider à la mise en place de nouveaux tests unitaires
+
+#### 1. Améliorer la couverture de code de la classe `WordAnalyticsService`
+
+- Dépliez la branche de test (`src/test/...`) du module `common` pour vérifier que la classe `WordAnalyticsService` possède déjà une classe de test `WordAnalyticsServiceTest`.
+
+- Ouvrez la classe `WordAnalyticsServiceTest` et exécutez les tests de cette classe pour vérifier que le code compile et que tous les tests passent.
+
+- Relancez les tests en demandant cette fois-ci la couverture de code.
+
+![Couverture de code initiale de la classe WordAnalyticsServcice](./images/CouvertureCodeWAS_Initiale.png "Couverture de code initiale de la classe WordAnalyticsServcice")
+
+- Consultez le code de la classe `WordAnalyticsService` afin de constater que la méthode `glossaryCoverageRatio` n'est actuellement pas couverte par les tests. Demandez à votre assistant de vous aider à couvrir cette méthode, par exemple, avec la commande :  
+  `/tests glossaryCoverageRatio`
+
+- Placez-vous à la fin de la classe `WordAnalyticsServiceTest` et insérez le code fourni par l'assistant (utilisez le bouton *Insert Code Block at Cursor* dans le chat).
+
+- Si besoin, ajoutez les `import` pour faire compiler le code.
+
+- Exécutez les tests (et si l'un d'entre eux échoue à cause d'une valeur `null`, supprimez-le), puis relancez l'analyse de couverture de code. Vous devriez constater une augmentation du pourcentage de la couverture à tous les niveaux : méthodes, lignes et branches, grâce aux tests ajoutés.
+
+#### 2. Tester la classe `JavaFileParser`
+
+- Consultez à nouveau la branche de test (`src/test/...`) du module `common` et notez que la classe `JavaFileParser` n'a pas encore de classe de test associée.
+
+- Ouvrez la classe `JavaFileParser` et demandez à votre assistant de vous aider à créer des tests avec la commande  
+   `/tests`
+
+- Créez *au bon endroit* la classe `JavaFileParserTest` et insérez-y le code généré par l'assistant.
+
+- Si besoin, ajoutez les `import` pour faire compiler le code.
+- Si une erreur de compilation nécessite de modifier la visibilité du code de production, ne modifiez pas le code existant et supprimez le test concerné, vous en avez d'autres à votre disposition.
+
+- Exécutez les tests.  
+Il est probable que les tests échouent en raison de données de tests contenant des chemins de fichiers en dur pointant vers des fichiers inexistants. Cela sera notamment le cas si l'assistant vous a généré un code de test similaire au suivant :
+
+   ```kotlin
+   @Test
+   fun processFile_withEmptyJavaFile_returnsEmptyList() {
+       val parser = JavaFileParser()
+       val path = "src/test/resources/EmptyJavaFile.java"
+       val words = parser.processFile(path)
+       assertTrue(words.isEmpty())
+   }
+   ```
+
+   ***Pour éviter ce type d'erreurs, une solution consiste à utiliser des fichiers temporaires grâce à l'annotation `@TempDir`.***
+
+- **Si vos tests ont échoué en raison de la mauvaise qualité des données de tests** :
+  - Supprimez tous les tests de la classe `JavaFileParserTest` et précisez dans votre prompt que vous souhaitez des tests utilisant `@TempDir` :  
+    `/tests en utilisant @TempDir`  
+  - Insérez le nouveau code généré dans le fichier `JavaFileParserTest`. Si besoin, ajoutez les `import` pour faire compiler le code.
+
+- **Dans tous les cas**, exécutez à nouveau les tests. La plupart des tests devraient passer.  
+Si un test échoue, mettez-le pour le moment en `@Disabled` (peut-être que le comportement qu'il teste n'a pas encore été implémenté) ou supprimez-le s'il ne correspond pas à vos (futurs) besoins.
+Le test le plus susceptible de poser problème est celui qui vérifie le comportement d'un fichier inexistant, et qui pourrait s'appeler `processFile_withNonExistentFile_returnsEmptyList` et qui nécessiterait donc une modification de la logique métier pour s'assurer que le code traite correctement les fichiers manquants.
+
+- Par curiosité, **lancez la couverture de code**.
+Bien sûr, l'assistant n'a probablement **pas couvert la classe à 100 %**, mais il a amorcé l'écriture de tests, vous donnant une première base. À vous ensuite de décider si vous souhaitez compléter cette suite de tests pour améliorer la couverture de code sur cette classe.
+
+- **À partir de cette base de tests**, vous pouvez :
+  - continuer à écrire d'autres tests manuellement en vous inspirant des tests générés.
+  - continuer d'interagir avec l'assistant en lui donnant des consignes plus ou moins précises, après avoir identifié les parties du code qui ne sont pas encore couvertes, par exemple :
+    - `Pourrais-tu m'écrire deux autres tests pour améliorer la couverture de code ?`
+    - `Ajoute un test qui couvre visit de MethodDeclaration et visit de Parameter.`
+
+- Et pour augmenter encore plus rapidement la couverture de code, **sélectionnez tout le code de la méthode `processFile`** et demandez à votre assistant de générer les tests :  
+  `/tests`  
+  Insérez le code de test généré dans `JavaFileParserTest` et relancez la couverture.
+
+> **Cette expérience illustre plusieurs points :**
+>
+>- **L'assistant de code est un bon outil pour démarrer sur une page blanche**.
+>
+>- Mais attention, **l'assistant de code n'est pas exhaustif dans sa réponse** ; il ne vous proposera qu'une partie des tests ou des exemples, et ne fera donc pas tout le travail à votre place.
+>
+>- **Pour des réponses plus complètes, il est nécessaire de continuer à dialoguer avec l'assistant** en formulant des demandes plus ou moins précises : un **prompt pas à pas** est une bonne pratique.
+>
+>- **Restez toujours vigilant** par rapport aux réponses générées et **(ab)usez de votre libre-arbitre et de votre esprit critique** pour détecter d'éventuelles hallucinations et ne conserver que les réponses qui conviennent à vos besoins.
+>
+>- Comme **l'historique des échanges est utilisé par l'assistant pour affiner le contexte**, il est conseillé de **nettoyer régulièrement le chat** en supprimant les requêtes non pertinentes ou qui n'ont pas donné le(s) résultat(s) attendu(s).
+>
+>- Le **caractère probabiliste** des réponses de l'assistant présente des **inconvénients** et des **avantages**.
+D'un côté, la qualité des données de test générées n'est pas toujours garantie. Toutefois, cet aspect non déterministe peut aussi conduire à la **découverte de nouvelles, voire meilleures, pratiques.**  
+Personnellement, lors d'une première demande de génération de tests, l'annotation `@TempDir`, utilisée pour les répertoires temporaires, a été découverte. Malheureusement, ce fut la seule fois où l'assistant l'a utilisée. Peut-être avez-vous eu la chance d'obtenir des tests unitaires fonctionnels du premier coup, ou peut-être pas 😉.
+
+- Et vous, connaissiez-vous `@TempDir` avant cette expérience ?  
+Votre assistant peut vous aider à en savoir plus en posant la question suivante :  
+`Pourrais-tu m'en dire plus sur  @TempDir ?`
+
+La réponse de l'assistant sera probablement similaire à la capture d'écran ci-dessous :
+
+![A propos de l'annotation TempDir](./images/TempDirAPropos.png "A propos de l'annotation TempDir")
+
+### 4.3.c Aider au refactoring
+
+Maintenant que le comportement est couvert par des tests, vous pouvez envisager sereinement un petit refactoring. Pour cela, demandez à l'assistant de vous proposer des améliorations en utilisant les commandes suivantes :
+**`/fix`** (vous pouvez préciser le nom de la méthode si vous souhaitez rester focalisé sur celle-ci)  
+**`/simplify`**
+
+- Par exemple, revenez sur la `WordAnalyticsService`, demandez :  
+    `/fix glossaryCoverageRatio`  
+    `/simplify`
+
+- Faites de même pour la `JavaFileParser`, demandez :  
+    `/fix`  
+    `/simplify`
+
+Dans les deux cas, l'assistant vous proposera des modifications, mais c'est à vous de décider si vous souhaitez les intégrer dans votre code (le fameux **libre arbitre**).
+
+### 4.3.d Aider à la revue de code
+
+Même sans avoir mis en place un harnais de tests, vous pouvez demander à votre assistant de code de vous proposer des suggestions de refactoring sur des bouts de code plus ou moins volumineux.
+
+Revenez sur la classe `Main` du module `cli`, ouvrez le code de cette classe et portez votre attention sur la méthode `processPath`, qui peut paraître un peu longue.
+
+Pour effectuer une rapide revue de code sur cette classe , demandez à l'assistant :  
+
+- `/fix`  
+- `/simplify`  
+
+Ces commandes devraient déjà vous donner des pistes pour améliorer la lisibilité de `processPath`.
+
+Vous pouvez ensuite approfondir l'analyse en posant vos propres questions, celles que vous vous posez habituellement lors d'une revue de code : `
+
+- `Y a-t-il des code smells dans ce bout de code ?`
+- `Y a-t-il des principes SOLID non respectés dans ce code ?`
+- `Le code peut-il être optimisé en termes de performance ou de lisibilité ?`
+- `La duplication de code est-elle présente ?`
+- `Y a-t-il des dépendances cycliques ou des responsabilités mal définies ?`
+- `[...]`
+  
+Lorsque vous échangez avec votre assistant des questions de qualité de code, celui-ci peut également vous suggérer d'explorer des aspects tels que la lisibilité, la maintenabilité ou la modularité du code en vous proposant de lui poser les questions suivantes :
+
+- `How can I improve the readability of the selected code?`
+- `How can I improve the maintainability of the selected code?`
+- `How can I improve the modularity of the selected code?`
+- `How can I refactor the code to improve modularity?`
+- `What are some options for simplifying the code?`
+
+Même si ces questions ne vous seront pas automatiquement proposées par l'assistant au moment où vous le souhaiteriez, il est toujours utile de les garder en tête **comme une boîte à outils de prompts pour améliorer la qualité de votre code** à tout moment.
+
+## 4.4 Proposer des pistes d'amélioration sur des problématiques sensibles
+
+Pour terminer ce tutoriel, il pourrait être intéressant de challenger votre assistant de code sur des problématiques sensibles, notamment celles dans lesquelles vous n'êtes pas expert.
+
+Prenons par exemple les questions de **sécurité**.  
+Vous pourriez commencer avec un prompt comme :
+
+- `Comment pourrais-tu améliorer la sécurité dans ce projet ?`
+- `[…]` *suivant la réponse obtenue, n'hésitez pas à approfondir certains points pas à pas avec votre assistant.*
+
+Votre assistant vous proposera probablement de continuer avec les questions suivantes :
+
+- `What are some best practices for securing a Java project?`
+- `What are some common security vulnerabilities in Java projects?`  
+- `[…]` *suivant la réponse obtenue, n'hésitez pas à approfondir certains points pas à pas avec votre assistant, par exemple :*
+- `Y a-t-il un risque d'exposition de données sensibles (Sensitive Data Exposure) dans ce projet ?`
+- `[…]`
+
+Vous aurez peut-être aussi des questions plus basiques à lui poser :
+
+- `Concrètement, pourrais-tu me montrer où et comment mieux gérer les exceptions dans ce projet ?`
+- `[…]`
+
+Bien sûr, si vous n'êtes pas expert en sécurité, il est recommandé de consulter un spécialiste avant d'adopter les propositions de l'assistant de code. Comme nous l'avons souvent souligné dans ce tutoriel, cet outil est là pour vous assister, mais seule l'expertise humaine peut déterminer si une suggestion de l'assistant est pertinente et doit être intégrée dans l'application.
+
+Il est également essentiel de garder à l'esprit que les outils d'IA générative sont uniquement des aides pour vous rendre plus productif et créatif. Ils ne sont pas à l'abri des erreurs ou des hallucinations. Vous restez maître de votre travail, et la **décision finale vous appartient**.
+
+---
+
+Si vous souhaitez en savoir plus sur le projet qui se cache derrière le code utilisé dans cette partie du tutoriel, vous pouvez consulter le dépôt suivant : [https://github.com/iblasquez/ubiquitous-langage-code-quality](https://github.com/iblasquez/ubiquitous-langage-code-quality)
+
+---
+
+***Accédez donc maintenant à la partie suivante qui est : [Liens utilisés pour la rédaction du tutoriel](4_ProjetExistantComplexe.md)***
