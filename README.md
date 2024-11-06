@@ -13,7 +13,7 @@ Dans ce tutoriel, nous verrez comment :
 * **[3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple][contenu_partie_3]**
 * **[4. Quid d'un assistant de code pour la reprise d'un projet complexe existant (legacy code)][contenu_partie_4]**
 
-Et vous trouverez [quelques liens utiles](.....) consultés pendant la rédaction de ce tutoriel.
+Et vous trouverez [quelques liens utiles][contenu_liens] consultés pendant la rédaction de ce tutoriel.
 
 Pour commencer le tutoriel, c'est par [là][Installation] si vous avez besoin d'installer Github Copilot dans votre IDE préféré.  
 Sinon vous pouvez commencer directement [ici][contenu_partie_2] pour prendre en main et faire vos premiers pas avec votre assistant de code préféré.
@@ -37,6 +37,7 @@ Toutefois, toute personne enseignant au département Informatique de l'IUT du Li
 [contenu_partie_2]: 2_PriseEnMainAssistant.md
 [contenu_partie_3]: 3_ProjetExistantSimple.md
 [contenu_partie_4]: 4_ProjetExistantComplexe.md
+[contenu_liens]: Liens.md
 
 <!-- https://www.jdbonjour.ch/cours/markdown-pandoc/ >
 https://www.statpower.net/Content/310/R%20Stuff/SampleMarkdown.html -->
