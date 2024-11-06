@@ -19,6 +19,10 @@ Si vous rencontrez des problèmes d'installation de Copilot dans votre IDE, vous
 
 La documentation du plug-in Copilot4Eclipse est quant à elle disponible sous <https://www.genuitec.com/products/copilot4eclipse/>
 
-***Accédez donc maintenant à la partie suivante qui est : [2. Prise en main de l'assistant de code : premiers pas sur un exemple simple][contenu_partie_2]***
+---
+
+***Accédez donc maintenant à la partie suivante qui est : [2. Prise en main de l'assistant de code : premiers pas sur un exemple simple][contenu_partie_2] ou retournez à l'[Accueil](README.md).***
+
+---
 
 [contenu_partie_2]: 2_PriseEnMainAssistant.md

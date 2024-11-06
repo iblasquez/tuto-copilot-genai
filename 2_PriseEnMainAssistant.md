@@ -1,5 +1,7 @@
 # 2. Prise en main de l'assistant de code : premiers pas sur un exemple simple
 
+---
+
 - [Générer des suggestions de code à partir de commentaires](#générer-des-suggestions-de-code-à-partir-de-commentaires-qui-décrivent-un-comportement-donné)
 - [Générer le code de tests (unitaires)](#générer-le-code-de-tests-unitaires)
 - [Expliquer comment fonctionne le code (`/explain`)](#expliquer-comment-fonctionne-le-code-explain)
@@ -14,6 +16,8 @@
 - [Mais Copilot n'est qu'un assistant autour du développement logiciel](#mais-copilot-nest-quun-assistant-autour-du-développement-logiciel)
 - [Guider pas à pas la prise en main de nouveau(x) outil(s)](#guider-pas-à-pas-la-prise-en-main-de-nouveaux-outils)
 - [Améliorer la pertinence des réponses de Copilot en ciblant le contexte du prompt avec des références (agents de conversation)](#améliorer-la-pertinence-des-réponses-de-copilot-en-ciblant-le-contexte-du-prompt-avec-des-références-agents-de-conversation)
+
+---
 
 Rien de tel qu'un exemple simple pour prendre en main un nouvel outil.  
 Dans votre IDE préféré, dans un projet Java que vous appellerez **maths**, créez une classe `Calculator` contenant l'implémentation suivante :
@@ -310,6 +314,10 @@ Pour en savoir plus sur les actions récurrentes et les agents de conversion, vo
 
 Après cette rapide prise en main de votre assistant de code, vous allez maintenant explorer et mettre en œuvre dans la suite de ce tutoriel quelques cas d'usages sur des projets déjà existants plus ou moins complexes
 
-***Accédez donc maintenant à la partie suivante qui est : [3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple][contenu_partie_3]***
+---
+
+***Accédez donc maintenant à la partie suivante qui est : [3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple][contenu_partie_3] ou retournez à l'[Accueil](README.md).***
+
+---
 
 [contenu_partie_3]: 3_ProjetExistantSimple.md

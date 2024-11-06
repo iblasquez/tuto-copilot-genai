@@ -1,5 +1,7 @@
 # 3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple
 
+---
+
 - [3.1 Avoir une vue d'ensemble du projet](#31-avoir-une-vue-densemble-du-projet)
 
 - [3.2 Mettre en place des tests unitaires](#32-mettre-en-place-des-tests-unitaires)
@@ -20,6 +22,8 @@
 - [3.7 Suggérer du code plus complexe (avec streams)](#37-suggérer-du-code-plus-complexe-avec-streams)
 
 - [3.8 Explorer d'autres cas d'usage](#38-explorer-dautres-cas-dusage)
+
+---
 
 Commencez par cloner le projet **bookai** depuis le dépôt GitHub à l'adresse suivante : [https://github.com/iblasquez/bookai](https://github.com/iblasquez/bookai), puis ouvrez-le dans votre IDE préféré.
 
@@ -251,4 +255,8 @@ L'assistant devrait alors vous guider sur où et comment implémenter cette mét
 
 En fonction de votre contexte et de vos besoins, vous découvrirez encore de nombreux cas d'usage tout au long de vos phases de développement. À vous de jouer !
 
-***Accédez donc maintenant à la partie suivante qui est : [3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple](4_ProjetExistantComplexe.md)***
+---
+
+***Accédez donc maintenant à la partie suivante qui est : [3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple](4_ProjetExistantComplexe.md) ou retournez à l'[Accueil](README.md).***
+
+---
