@@ -15,7 +15,7 @@ Il est à noter que la documentation de GitHub Copilot est disponible sous [GitH
 
 Comme VS Code, Copilot est développé par GitHub, et donc Microsoft. VS Code est donc l'IDE qui offre aujourd'hui la meilleure expérience utilisateur pour Copilot. L'utilisation de Copilot sous JetBrains est également très performante.
 
-Si vous rencontrez des problèmes d'installation de Copilot dans votre IDE, vous pouvez vous rendre dans la documentation de Copilot dans la rubrique **Manage Copilot → Configure Personal settings → Install Copilot** pour ouvrir l'article qui explique comment installer l'extension Copilot dans votre environnement (JetBrains, Visual Studio entre autres,...).
+Si vous rencontrez des problèmes d'installation de Copilot dans votre IDE, vous pouvez vous rendre dans la documentation de Copilot dans la rubrique [Installation de l'extension GitHub Copilot dans votre environnementn](https://docs.github.com/fr/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment) en suivant (on accède à cette rubrique à partir de **[Gérer Copilot → Configurer des paramètres personnels → Installer l'extension Copilot](https://docs.github.com/fr/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment)**) pour ouvrir l'article qui explique comment installer l'extension Copilot dans votre environnement (JetBrains, Visual Studio entre autres,...).
 
 La documentation du plug-in Copilot4Eclipse est quant à elle disponible sous <https://www.genuitec.com/products/copilot4eclipse/>
 
