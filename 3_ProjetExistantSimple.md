@@ -121,7 +121,7 @@ Pour cela, il est préférable de sélectionner le code à tester et d'utiliser 
 Si certains échouent, ne modifiez pas le code de production immédiatement. Vérifiez d'abord si les valeurs utilisées dans les tests sont correctes : certes, elles font passer le(s) test(s), mais correspondent-elles à un ISBN valide ?
 
 - En effet, pour **garantir la qualité des tests**, il est crucial d'être **attentif à la qualité des données de vos tests** (que l'assistant de code ne nous garantit pas forcément).
-Pour être sûr de **tester avec des données de qualité**, vous allez maintenant ***revisiter** (c-a-d modifier) les tests générés et les ajuster **en utilisant comme exemples dans vos tests de *véritables valeurs ISBN***, à savoir :
+Pour être sûr de **tester avec des données de qualité**, vous allez maintenant ***revisiter*** (c-a-d modifier) les tests générés et les ajuster **en utilisant comme exemples dans vos tests de *véritables valeurs ISBN***, à savoir :
 
   - `9780321146533` quand votre test est censé vérifié qu'un **ISBN-13 est correct**
     Cet ISBN-13 n'est autre que celui du livre *Test-Driven Development* de Kent Beck
@@ -134,6 +134,8 @@ Cet ISBN-10 n'est autre que a version originale de 1999 du livre The Pragmatic P
   Cet ISBN-10 est celui du livre *Domain Driven Design* d'Eric Evans.
 
 - **Pour tester un ISBN mal formé ou invalide**, vous pouvez simplement **modifier le dernier chiffre, car celui-ci est la clé de contrôle**.
+
+- Si les tests ne passent pas avec les données de qualité ci-dessus, demandez à votre assistant de vous regénérer le code qui pose problème.  
 
 **Conseil** : *Comme tout refactoring, adoptez une approche méthodique pour **revisiter/ajuster** vos tests avec les véritables valeurs. Avancez progressivement **petits pas par petits pas** : modifiez une valeur, relancez le test correspondant, puis passez au test suivant*.
 
