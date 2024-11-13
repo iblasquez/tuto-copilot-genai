@@ -170,7 +170,7 @@ Ensuite, posez la question suivante :
 Il est fort probable que votre assistant vous suggère, pour un tel cas d'usage, de **plutôt utiliser les outils de l'IDE pour une réponse plus complète**. Vous devriez obtenir des réponses du type :
 ***Pour une analyse complète, il serait nécessaire de rechercher toutes les occurrences de Glossary dans le projet*** ou *Pour une recherche exhaustive, vous pouvez utiliser les fonctionnalités de recherche de votre IDE (IntelliJ IDEA) pour trouver toutes les occurrences de Glossary dans le projet.*
 
-> C'est donc le bon moment pour rappeler qu'il est essentiel d'**utiliser son assistant de code de manière réfléchie et pour des cas d'usages pertinents**, d'autant plus que les requêtes faites auprès d'outils d'IA générative ont un **coût énergétique très (voire trop) élevé de nos jours** comme le rappelle [un article de la Tribune Futurs de Novembre 2024](https://www.linkedin.com/posts/nitot_on-a-tous-une-bonne-raison-de-passer-%C3%A0-activity-7262137193521889280-Iadq)
+> C'est donc le bon moment pour rappeler qu'il est essentiel d'**utiliser son assistant de code de manière réfléchie et pour des cas d'usages pertinents**, d'autant plus que les requêtes faites auprès d'outils d'IA générative ont un **coût énergétique très (voire trop) élevé de nos jours** comme le mentionne [un article de la Tribune Futurs de Novembre 2024](https://www.linkedin.com/posts/nitot_on-a-tous-une-bonne-raison-de-passer-%C3%A0-activity-7262137193521889280-Iadq)
 
 ##### Zoom sur la classe `FileReader`
 
