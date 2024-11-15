@@ -7,17 +7,21 @@ Le service **Copilot de GitHub** est soumis à abonnement, mais en tant qu'étud
 
 - Sous **VS Code** à partir de l'icône **Extensions** (`Ctrl+Shift+X`)
 - Sous **JetBrains** à partir de **File → Settings → Plug-ins**
-- Sous **Eclipse** à partir de l'**Eclipse Market** (**Help → Eclipse Market**) qui permettra de récupérer le plugin [copilot4eclipse](https://www.genuitec.com/products/copilot4eclipse/)
+- Sous **Eclipse** à partir de l'**Eclipse Market** (**Help → Eclipse Market**) qui permettra de récupérer le plugin [Copilot4eclipse](https://www.genuitec.com/products/copilot4eclipse/).
 
 Une fois le plug-in/extension installé(e), vous serez invité à vous connecter à votre compte GitHub. Après la connexion, Copilot sera activé automatiquement : des suggestions de code pourront alors apparaître dans votre IDE et un chat sera également à votre disposition.
 
-Il est à noter que la documentation de GitHub Copilot est disponible sous [GitHub Docs](https://docs.github.com/fr/copilot).
+Si vous souhaitez une description plus détaillée pour installer de Copilot dans votre IDE :
+
+- pour **JetBrains**, **Visual Studio**, **...** :  
+Rendez-vous dans la documentation de Copilot dans la rubrique [Installation de l'extension GitHub Copilot dans votre environnement](https://docs.github.com/fr/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment). Sur cette page, choisissez ensuite l'onglet qui correspond à votre IDE.
+
+- pour **Eclipse** :  
+Rendez-vous dans la rubrique [Installation](https://www.genuitec.com/products/copilot4eclipse/docs/installation/) de Copilot4Eclipse et/ou visionnez le début de la vidéo disponible [ici](https://www.youtube.com/watch?v=q2dhnulEYFk).
 
 Comme VS Code, Copilot est développé par GitHub, et donc Microsoft. VS Code est donc l'IDE qui offre aujourd'hui la meilleure expérience utilisateur pour Copilot. L'utilisation de Copilot sous JetBrains est également très performante.
 
-Si vous rencontrez des problèmes d'installation de Copilot dans votre IDE, vous pouvez vous rendre dans la documentation de Copilot dans la rubrique [Installation de l'extension GitHub Copilot dans votre environnementn](https://docs.github.com/fr/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment) en suivant (on accède à cette rubrique à partir de **[Gérer Copilot → Configurer des paramètres personnels → Installer l'extension Copilot](https://docs.github.com/fr/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment)**) pour ouvrir l'article qui explique comment installer l'extension Copilot dans votre environnement (JetBrains, Visual Studio entre autres,...).
-
-La documentation du plug-in Copilot4Eclipse est quant à elle disponible sous <https://www.genuitec.com/products/copilot4eclipse/>
+Il est à noter que la **documentation de GitHub Copilot** est disponible sous [GitHub Docs](https://docs.github.com/fr/copilot).
 
 ---
 
