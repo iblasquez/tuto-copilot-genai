@@ -15,6 +15,8 @@ Dans ce tutoriel, nous verrez comment :
 
 Et vous trouverez [quelques liens utiles][contenu_liens] consultés pendant la rédaction de ce tutoriel.
 
+Ce tutoriel est accompagné d'un formulaire pour m'aider à analyser les différents comportements des assistants de code et votre perception des assistants de code. N'hésitez pas à compléter ce **formulaire accessible [ici](https://forms.gle/YquLZ7CMsmmgvwHUA)** en même temps que vous réalisez le tutoriel.
+
 Pour commencer le tutoriel, c'est par [là][Installation] si vous avez besoin d'installer Github Copilot dans votre IDE préféré.  
 Sinon vous pouvez commencer directement [ici][contenu_partie_2] pour prendre en main et faire vos premiers pas avec votre assistant de code préféré.
 
