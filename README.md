@@ -4,7 +4,7 @@
 
 ***Disclaimer*** : *Ce tutoriel a pour objectif de présenter quelques cas d'usage des assistants de code basés sur des modèles d'IA génératives. Il vise également à sensibiliser aux avantages de ces outils, tels que l'amélioration de la productivité et l'optimisation des pratiques de développement, tout en mettant en lumière leurs limites.*
 
-*Initialement conçu pour des étudiants bénéficiant de l'offre [GitHub Education][githubEducationLink], GitHub Copilot a été choisi pour illustrer ces cas d'usage. Cependant, il est tout à fait possible de suivre ce tutoriel en utilisant d'autres assistants de code, comme [Codeium][codeiumLink], [Cursor][cursorLink] ou [Tabnine][tabnineLink],... qui offrent des services similaires. Le terme "**assistant de code**" sera donc privilégié autant que possible.*
+*Initialement conçu pour des étudiants bénéficiant de l'offre [GitHub Education][githubEducationLink], GitHub Copilot a été choisi pour illustrer ces cas d'usage. Cependant, il est tout à fait possible de suivre ce tutoriel en utilisant d'autres assistants de code, comme [Codeium][codeiumLink], [Cursor][cursorLink], [Supermaven](https://supermaven.com/) ou [Tabnine][tabnineLink],... qui offrent des services similaires. Le terme "**assistant de code**" sera donc privilégié autant que possible.*
 
 Dans ce tutoriel, nous verrez comment :
 

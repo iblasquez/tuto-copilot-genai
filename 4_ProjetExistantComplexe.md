@@ -36,7 +36,7 @@
 Dans un article récent intitulé [Legacy Modernization meets GenAI](https://martinfowler.com/articles/legacy-modernization-gen-ai.html), Martin Fowler a écrit :  
 > *Jusqu'à présent, la majorité de l'attention portée à l'intelligence artificielle générative (GenAI) dans le développement logiciel est axée sur la génération de code. Mais nous croyons qu'il y a autant, voire plus, de valeur dans la compréhension du code existant - en particulier des systèmes hérités complexes, volumineux et anciens.*
 
-**GitHub Copilot** est un outil d'IA générative pour le code parmi d'autres ([Codeium](https://codeium.com), [Cursor](https://www.cursor.com),[Tabnine](https://www.tabnine.com),..) qui peut nous aider dans ce sens, en nous fournissant aussi bien une vue d'ensemble d'un système, qu'en détaillant des points précis d'un code legacy pour mieux le comprendre et éventuellement en améliorer sa qualité.  
+**GitHub Copilot** est un outil d'IA générative pour le code parmi d'autres ([Codeium](https://codeium.com), [Cursor](https://www.cursor.com), [Supermaven](https://supermaven.com/), [Tabnine](https://www.tabnine.com),..) qui peut nous aider dans ce sens, en nous fournissant aussi bien une vue d'ensemble d'un système, qu'en détaillant des points précis d'un code legacy pour mieux le comprendre et éventuellement en améliorer sa qualité.  
 Pour ce tutoriel, vous utiliserez le code du projet **`codelinguo`** développé par un groupe d'étudiants de 3ème année de BUT Informatique dans le cadre d'une SAE (Situation d'Apprentissage et d'Évaluation).  
 Vous commencerez donc par **cloner ce projet** : [https://github.com/carlodrift/codelinguo](https://github.com/carlodrift/codelinguo)  
 et ouvrirez ce projet dans votre IDE préféré muni de Copilot (IntelliJ ou Visual Studio).
@@ -506,6 +506,6 @@ Si vous souhaitez en savoir plus sur le projet qui se cache derrière le code ut
 
 ---
 
-***Accédez donc maintenant à la partie suivante qui est : [Liens utilisés pour la rédaction du tutoriel](4_ProjetExistantComplexe.md)ou retournez à l'[Accueil](README.md).***
+***Accédez donc maintenant à la partie suivante qui est : [Liens utilisés pour la rédaction du tutoriel](Liens.md)ou retournez à l'[Accueil](README.md).***
 
 ---
