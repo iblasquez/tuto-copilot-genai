@@ -211,7 +211,7 @@ Faites compiler le code en ajoutant éventuellement les `imports` nécessaires.
 
 Si un test échoue, examinez attentivement la **qualité des données utilisées dans ce test**.
     En effet, si tout comme moi, les probabilités ne sont pas avec vous aujourd'hui, vous pourriez être victime de l'**hallucination** suivante :
-![hallucinataion sur les données du test généré](../../images/Hallucination_DonneesTest.png "hallucinataion sur les données du test généré")
+![hallucinataion sur les données du test généré](../assets/Hallucination_DonneesTest.png "hallucinataion sur les données du test généré")
 
 &#8594; À première vue, les données du test peuvent paraître correctes, mais le test échoue sur l'assertion `assertTrue`. En effet, l'assistant de code a utilisé, par erreur, la valeur d'un **auteur** d'un livre comme paramètre dans la méthode `searchBookByTitle` au lieu de la valeur d'un **titre**.
     Cette confusion est probablement due à la ***primitive obsession*** dans la signature du constructeur de `Book`, qui prend trop de paramètres de type `String`.
@@ -225,7 +225,7 @@ Si un test échoue, examinez attentivement la **qualité des données utilisées
 &#8594; Pour améliorer la lisibilité (et donc la compréhension) de votre test, il est recommandé d'ajuster le test avec de **véritables valeurs métiers**, plus pertinentes et cohérentes.  
 Le test précédent, revisité dans ce sens, ressemble maintenant à cela :
 
-![Correction de l'hallucinataion sur les données du test généré](../../images/Hallucination_DonneesTest_Correction.png "Correction de l'hallucinataion sur les données du test généré")
+![Correction de l'hallucinataion sur les données du test généré](../assets/Hallucination_DonneesTest_Correction.png "Correction de l'hallucinataion sur les données du test généré")
 
 Cette hallucination nous donne l'occasion de rappeler qu'**il faut être très vigilant à la qualité des données dans les tests générés**, et que les valeurs prises comme exemple, tout comme le code, nécessitent une relecture de votre part.  
 Toutefois, il est intéressant de remarquer qu'une **hallucination** de l'assistant peut aussi **mettre sur la voie des problèmes de conception** (mauvaises odeurs), que seule votre expertise détectera.

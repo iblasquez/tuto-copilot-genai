@@ -1,19 +1,12 @@
 # Copilot & Co Tutorial
 
----
+***Developing Critical Thinking with AI Coding Assistants: An Educational Experience focusing on Testing and Legacy Code***
 
-## Developing Critical Thinking with AI Coding Assistants: An Educational Experience focusing on Testing and Legacy Code
-
----
+*This tutorial aims to present several use cases of AI coding assistants powered by generative models. It also seeks to raise awareness of the benefits of these tools—such as improved productivity and enhanced development practices—while highlighting their limitations.*
 
 *Ce tutoriel a pour objectif de présenter quelques cas d'usage des assistants de code basés sur des modèles d'IA génératives. Il vise également à sensibiliser aux avantages de ces outils, tels que l'amélioration de la productivité et l'optimisation des pratiques de développement, tout en mettant en lumière leurs limites.*
-La **version française** de ce tutoriel est disponible [ici](./docs/fr/index.md)
 
----
-*This tutorial aims to present several use cases of AI coding assistants powered by generative models. It also seeks to raise awareness of the benefits of these tools—such as improved productivity and enhanced development practices—while highlighting their limitations.*
-The **english version (in progress)** of this tutorial is available [here](./docs/en/index.md)
-
----
+**👉 Go to the tutorial : <https://iblasquez.github.io/tuto-copilot-genai>**
 
 ## Shall We Talk About It?
 
@@ -28,5 +21,8 @@ Attribution – NonCommercial – ShareAlike](https://creativecommons.org/licens
 
 Learn more about [Creative Commons licenses](https://creativecommons.org/licenses/?lang=en)...
 
-<!--https://www.mkdocs.org/getting-started/>
-<!--https://blog.stephane-robert.info/docs/documenter/mkdocs/>
+<!-- documentation mkdocs -->
+<!--https://www.mkdocs.org/getting-started/ -->
+<!--https://blog.stephane-robert.info/docs/documenter/mkdocs/ -->
+<!-- https://thomaswildetech.com/software-development/github/workflows/deploy-to-github-pages/-->
+<!-- lancer en local : mkdocs serve  et http://localhost:8000 -->

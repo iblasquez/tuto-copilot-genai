@@ -15,15 +15,6 @@ nav:
   - english version:
       - Home: en/index.md
 
-plugins:
- - i18n:
-      default_language: en
-      languages:
-        - locale: en
-          name: English
-          default: true
-        - locale: fr
-          name: Français
 
 markdown_extensions:
   - admonition
