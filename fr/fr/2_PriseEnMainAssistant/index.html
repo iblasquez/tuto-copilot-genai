@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="fr" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://iblasquez.github.io/tuto-copilot-genai/fr/fr/2_PriseEnMainAssistant/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Prise en main de l'assistant de code - Copilot & Co Tutorial</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Prise en main de l\u0027assistant de code";
+        var mkdocs_page_input_path = "fr\\2_PriseEnMainAssistant.md";
+        var mkdocs_page_url = "/tuto-copilot-genai/fr/fr/2_PriseEnMainAssistant/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> Copilot & Co Tutorial
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navigation">
+              <p class="caption"><span class="caption-text">version française</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Accueil</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1_Installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Prise en main de l'assistant de code</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#generer-des-suggestions-de-code-a-partir-de-commentaires-qui-decrivent-un-comportement-donne">Générer des suggestions de code à partir de commentaires (qui décrivent un comportement donné)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#a-retenir">À retenir</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generer-le-code-de-tests-unitaires">Générer le code de tests (unitaires)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#expliquer-comment-fonctionne-le-code-explain">Expliquer comment fonctionne le code (/explain)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#quelques-mots-sur-la-notion-de-prompt">Quelques mots sur la notion de prompt</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#les-commandes-slash-de-copilot-une-aide-au-prompting-pour-des-tachesactions-recurrentes">Les commandes slash de Copilot : une aide au prompting pour des tâches/actions récurrentes</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#faciliter-la-resolution-de-problemes-dans-le-code-fixer-refactorer-ameliorer">Faciliter la résolution de problèmes dans le code : fixer, refactorer, améliorer</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixer-fix">Fixer : /fix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#refactorer-un-bout-de-code">Refactorer un bout de code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#demander-comment-ameliorer-la-qualite-du-code">Demander comment améliorer la qualité du code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generer-facilement-de-la-documentation-doc">Générer facilement de la documentation : /doc</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#approfondir-un-sujet-en-lien-avec-le-developpement-logiciel">Approfondir un sujet en lien avec le développement logiciel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mais-copilot-nest-quun-assistant-autour-du-developpement-logiciel">Mais Copilot n'est qu'un assistant autour du développement logiciel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#guider-pas-a-pas-la-prise-en-main-de-nouveaux-outils">Guider pas à pas la prise en main de nouveau(x) outil(s)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#remarques">Remarques</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ameliorer-la-pertinence-des-reponses-de-copilot-en-ciblant-le-contexte-du-prompt-avec-des-references-agents-de-conversation">Améliorer la pertinence des réponses de Copilot en ciblant le contexte du prompt avec des références (agents de conversation)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#variable-de-conversation-notation">Variable de conversation : notation #</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#participant-de-conversation-notation">Participant de conversation : notation @</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../3_ProjetExistantSimple/">Mise en place de nouvelles règles métiers dans un projet simple</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../4_ProjetExistantComplexe/">Reprise d'un projet complexe existant (legacy code)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Liens/">Quelques liens utiles</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">english version</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../en/">Home</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Menu de navigation sur mobile">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">Copilot & Co Tutorial</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Documents"></a></li>
+          <li class="breadcrumb-item">version française</li>
+      <li class="breadcrumb-item active">Prise en main de l'assistant de code</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2-prise-en-main-de-lassistant-de-code-premiers-pas-sur-un-exemple-simple">2. Prise en main de l'assistant de code : premiers pas sur un exemple simple<a class="headerlink" href="#2-prise-en-main-de-lassistant-de-code-premiers-pas-sur-un-exemple-simple" title="Permanent link">&para;</a></h1>
+<hr />
+<ul>
+<li><a href="#générer-des-suggestions-de-code-à-partir-de-commentaires-qui-décrivent-un-comportement-donné">Générer des suggestions de code à partir de commentaires</a></li>
+<li><a href="#générer-le-code-de-tests-unitaires">Générer le code de tests (unitaires)</a></li>
+<li><a href="#expliquer-comment-fonctionne-le-code-explain">Expliquer comment fonctionne le code (<code>/explain</code>)</a></li>
+<li><a href="#quelques-mots-sur-la-notion-de-prompt">Quelques mots sur la notion de prompt</a></li>
+<li><a href="#les-commandes-slash-de-copilot--une-aide-au-prompting-pour-des-tâchesactions-récurrentes">Les commandes slash de Copilot : une aide au prompting pour des tâches/actions récurrentes</a></li>
+<li><a href="#faciliter-la-résolution-de-problèmes-dans-le-code--fixer-refactorer-améliorer">Faciliter la résolution de problèmes dans le code : fixer, refactorer, améliorer</a></li>
+<li><a href="#fixer--fix">Fixer : <code>/fix</code></a></li>
+<li><a href="#refactorer-un-bout-de-code">Refactorer un bout de code</a></li>
+<li><a href="#demander-comment-améliorer-la-qualité-du-code">Demander comment améliorer la qualité du code</a></li>
+<li><a href="#générer-facilement-de-la-documentation--doc">Générer facilement de la documentation : <code>/doc</code></a></li>
+<li><a href="#approfondir-un-sujet-en-lien-avec-le-développement-logiciel">Approfondir un sujet en lien avec le développement logiciel</a></li>
+<li><a href="#mais-copilot-nest-quun-assistant-autour-du-développement-logiciel">Mais Copilot n'est qu'un assistant autour du développement logiciel</a></li>
+<li><a href="#guider-pas-à-pas-la-prise-en-main-de-nouveaux-outils">Guider pas à pas la prise en main de nouveau(x) outil(s)</a></li>
+<li><a href="#améliorer-la-pertinence-des-réponses-de-copilot-en-ciblant-le-contexte-du-prompt-avec-des-références-agents-de-conversation">Améliorer la pertinence des réponses de Copilot en ciblant le contexte du prompt avec des références (agents de conversation)</a></li>
+</ul>
+<hr />
+<p>Rien de tel qu'un exemple simple pour prendre en main un nouvel outil.<br />
+Dans votre IDE préféré, dans un projet Java que vous appellerez <strong>maths</strong>, créez une classe <code>Calculator</code> contenant l'implémentation suivante :</p>
+<div class="codehilite"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Calculator</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">subtract</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">multiply</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">divide</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s">&quot;Cannot divide by zero&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="generer-des-suggestions-de-code-a-partir-de-commentaires-qui-decrivent-un-comportement-donne">Générer des suggestions de code à partir de commentaires (qui décrivent un comportement donné)<a class="headerlink" href="#generer-des-suggestions-de-code-a-partir-de-commentaires-qui-decrivent-un-comportement-donne" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Placez votre curseur à la fin de la classe (sur la ligne juste avant l'accolade fermante <code>}</code>).</li>
+<li>
+<p><strong>Écrivez un commentaire</strong> qui montre <strong>l'intention du code</strong> que vous cherchez à implémenter, comme par exemple :<br />
+<code>//Method to calculate the square root</code><br />
+  Puis appuyez sur la touche <strong>Entrée</strong> et observez...  </p>
+</li>
+<li>
+<p><strong>L'assistant de code</strong> suggère une implémentation pour le comportement décrit dans le commentaire.</p>
+</li>
+<li>
+<p>Si cette implémentation répond bien à vos besoins et que vous souhaitez <strong>insérer dans votre éditeur <em>tout</em> le code suggéré par votre assistant</strong>, appuyez sur la touche <strong>Tabulation</strong> de votre clavier.</p>
+</li>
+<li>
+<p>Écrivez un nouveau commentaire pour une nouvelle méthode, par exemple :<br />
+<code>//Method to calculate the logarithm</code><br />
+  Appuyez sur <strong>Entrée</strong> pour visualiser le code généré par votre assistant pour répondre à ce comportement.</p>
+</li>
+<li>
+<p>Vous n'êtes pas obligé de valider totalement la suggestion de l'assistant, vous pouvez <strong>insérer partiellement le code proposé par l'assistant</strong> :</p>
+</li>
+<li><strong>Ctrl+Flèche Droite</strong> permet d'<strong>insérer un seul mot à la fois</strong>.</li>
+<li>
+<p><strong>Ctrl+Alt+Flèche Droite</strong> permet d'<strong>insérer une seule ligne à la fois</strong>.</p>
+</li>
+<li>
+<p>Placez-vous sur une nouvelle ligne et attendez. Sans commentaire (c.-à-d. sans demande explicite), votre assistant vous propose quand même des suggestions de code sur des méthodes qui pourraient venir enrichir, selon lui, le comportement de votre classe. A vous de décider, selon vos besoins, s'il est pertinent ou pas d'ajouter le code suggéré/généré.</p>
+</li>
+</ul>
+<h3 id="a-retenir">À retenir<a class="headerlink" href="#a-retenir" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pour chaque tâche, commencez par écrire un commentaire décrivant ce que vous souhaitez faire, puis laissez l'assistant de code vous suggérer une implémentation. N'oubliez pas que l'assistant de code est un outil d'assistance et que vous devez toujours vérifier, comprendre et éventuellement ajuster le code qu'il génère.</li>
+<li>Si la proposition de votre assistant ne vous convient pas, appuyez simplement sur <strong>Entrée</strong> pour écrire votre propre code.</li>
+</ul>
+<h2 id="generer-le-code-de-tests-unitaires">Générer le code de tests (unitaires)<a class="headerlink" href="#generer-le-code-de-tests-unitaires" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Avec l'aide de votre IDE, créez maintenant, au bon endroit de votre projet, une classe <code>CalculatorTest</code> qui regroupera les tests unitaires relatifs à la classe <code>Calculator</code>.</p>
+</li>
+<li>
+<p>Placez-vous dans cette nouvelle classe (vide : faites en sorte que cette classe ne contienne aucun test pour le moment)  et attendez la suggestion de votre assistant.</p>
+</li>
+<li>
+<p><strong>Votre assistant</strong> devrait vous suggérer un jeu complet de tests unitaires pour chacune des méthodes de la classe. Appuyez sur <strong>Tabulation</strong> pour insérer le code suggéré dans cette classe.</p>
+</li>
+<li>
+<p>Lancez les tests pour vérifier qu'ils passent bien tous et consultez la couverture de code.</p>
+</li>
+<li>
+<p>Si votre assistant ne vous fait aucune suggestion, vous pouvez procéder comme précédemment et écrire un commentaire décrivant le comportement à tester. Si, par exemple, vous souhaitez disposer d'une méthode de test pour le cas de la division par zéro :</p>
+</li>
+<li>Ecrivez comme commentaire : <code>//test divide by zero</code>  </li>
+<li>L'assistant commencera par proposer l'annotation <code>@Test</code> qu'il faut valider avec <strong>Tabulation</strong>. Appuyez ensuite sur <strong>Entrée</strong> pour que l'assistant continue ses suggestions.  </li>
+<li>L'assistant propose alors l'implémentation de la méthode de test que vous pouvez choisir de <strong>valider</strong> en appuyant sur <strong>Tabulation</strong> ou de <strong>refuser</strong> en appuyant sur <strong>Entrée</strong>, vous permettant ainsi de reprendre la main dans votre IDE.</li>
+</ul>
+<h2 id="expliquer-comment-fonctionne-le-code-explain">Expliquer comment fonctionne le code (<code>/explain</code>)<a class="headerlink" href="#expliquer-comment-fonctionne-le-code-explain" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Sélectionnez dans la classe <code>Calculator</code> tout le <strong>code de la méthode <code>divide</code></strong>.</li>
+<li>
+<p>Une fois ce code sélectionné (surligné), <strong>ouvrez le chat de votre assistant</strong>.
+Pour ouvrir le chat de copilot, faites un clic droit, recherchez quelque chose comme <strong>(Github)Copilot</strong> puis sélectionnez quelque chose comme <strong>OpenChatPanel</strong> : le chat de l'assistant devrait alors <strong>s'ouvrir sur le côté (droit) de votre IDE</strong>.
+Dans certains IDE, il est également possible d'ouvrir directement le chat au milieu du code (InLine Chat). Mais pour ce tutoriel, nous vous conseillons d'utiliser le chat classique.</p>
+</li>
+<li>
+<p>Le chat de l'assistant fonctionne comme un chat IA classique. Une fois le code sélectionné, il suffit de poser une question, par exemple: <strong><code>Comment fonctionne ce code ?</code></strong>
+  L'assistant vous expliquera alors comment fonctionne ce morceau de code.</p>
+</li>
+<li>
+<p>Dans le cadre du développement logiciel, les développeurs se posent souvent la question : <strong>Comment fonctionne ce code ?</strong>. Pour faciliter l'écriture de cette question répétitive dans le chat, <strong>Copilot</strong> propose un raccourci dédié : la commande  <strong><code>/explain</code></strong>.
+  Assurez-vous que le code de la méthode <code>divide</code> est toujours sélectionné, puis tapez <code>/explain</code> dans le chat et appuyez sur <strong>Entrée</strong>. Comme précédemment, Copilot fournira une description détaillée de ce que fait le code.</p>
+</li>
+</ul>
+<h2 id="quelques-mots-sur-la-notion-de-prompt">Quelques mots sur la notion de prompt<a class="headerlink" href="#quelques-mots-sur-la-notion-de-prompt" title="Permanent link">&para;</a></h2>
+<p>Il est maintenant temps d'introduire la notion de prompt.
+Dans le domaine de l'intelligence artificielle (IA), un <strong>prompt</strong> est une instruction ou un ensemble de données que vous fournissez à un système d'IA pour qu'il génère une réponse. En d'autres termes, c'est la manière dont vous interagissez/dialoguez avec votre assistant de code.<br />
+Les prompts peuvent être des phrases courtes, des questions ou des mots-clés. La pertinence et la qualité des réponses fournies par l'assistant de code (ou tout autre agent conversationnel IA) dépendent directement de la qualité de vos prompts, c'est-à-dire de la clarté et de la précision des informations que vous fournissez.</p>
+<h2 id="les-commandes-slash-de-copilot-une-aide-au-prompting-pour-des-tachesactions-recurrentes">Les commandes slash de Copilot : une aide au prompting pour des tâches/actions récurrentes<a class="headerlink" href="#les-commandes-slash-de-copilot-une-aide-au-prompting-pour-des-tachesactions-recurrentes" title="Permanent link">&para;</a></h2>
+<p>&#8594; Copilot propose des raccourcis, appelés <strong>commandes slash</strong> (ou slash commands), qui permettent d'exécuter un certain nombre de tâches répétitives et typiques du développement logiciel. En tapant une <strong>barre oblique (slash) (<code>/</code>)</strong> dans le chat, Copilot vous suggère une liste de commandes pour interagir rapidement avec lui.<br />
+Nous venons d'utiliser <code>/explain</code>, nous explorerons d'autres commandes slash au cours du tutoriel.</p>
+<p>Le tableau ci-dessous donne <strong>la liste des commandes slash</strong> proposées actuellement dans Copilot :</p>
+<table>
+<thead>
+<tr>
+<th>Commande slash</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/explain</code></td>
+<td>Explain how the code works</td>
+</tr>
+<tr>
+<td><code>/feedback</code></td>
+<td>Steps to provide feedback</td>
+</tr>
+<tr>
+<td><code>/fix</code></td>
+<td>Fix problems and compile errors</td>
+</tr>
+<tr>
+<td><code>/help</code></td>
+<td>Get help on how to use Copilot chat</td>
+</tr>
+<tr>
+<td><code>/tests</code></td>
+<td>Generate unit tests</td>
+</tr>
+<tr>
+<td><code>/doc</code></td>
+<td>Document current selection of code</td>
+</tr>
+<tr>
+<td><code>/simplify</code></td>
+<td>Simplify the code</td>
+</tr>
+</tbody>
+</table>
+<p>&#8594; Par défaut, le chat de Copilot se réfère au <strong>fichier ouvert</strong> ou au <strong>code sélectionné</strong>.
+Cependant, vous pouvez indiquer explicitement le fichier auquel vous souhaitez faire référence dans le chat. Pour cela, faites un clic droit sur le fichier concerné, sélectionnez <strong>GitHub Copilot</strong>, puis cliquez sur <strong>Reference File in Chat</strong>. Le fichier sera alors explicitement référencé dans le chat.</p>
+<p><strong>Disclaimer</strong> : <em>Dans les cas d'usage que vous allez explorer dans la suite de ce tutoriel les commandes slash vont souvent être utilisées comme prompt pour dialoguer de manière succincte, mais précise avec votre assistant.</em></p>
+<p><strong><em>Si vous utilisez un autre assistant de code, autre que Copilot,</em>* votre assistant proposera surement un équivalent à la commande slash de Copilot. Si ce n'est pas le cas, à chaque fois qu'une commande slash sera utilisée dans la suite de ce tutoriel, </strong>veuillez écrire comme prompt la phrase complète donnée comme description dans le tableau précédent*<em> qui décrit en détail la tâche demandée à l'assistant &#8230;ou bien essayez de faire apprendre ce raccourci à votre assistant de code préféré &#128522;</em></p>
+<h2 id="faciliter-la-resolution-de-problemes-dans-le-code-fixer-refactorer-ameliorer">Faciliter la résolution de problèmes dans le code : fixer, refactorer, améliorer<a class="headerlink" href="#faciliter-la-resolution-de-problemes-dans-le-code-fixer-refactorer-ameliorer" title="Permanent link">&para;</a></h2>
+<h3 id="fixer-fix">Fixer : <code>/fix</code><a class="headerlink" href="#fixer-fix" title="Permanent link">&para;</a></h3>
+<p>Si le fichier <strong>actif</strong> contient une erreur, utilisez la commande slash <code>/fix</code> pour demander à Copilot comment corriger l'erreur.</p>
+<ul>
+<li>Par exemple, placez-vous dans la classe <code>CalculatorTest</code> et effacez tous les <strong><code>import</code></strong>.</li>
+<li>Des erreurs de compilation apparaissent alors dans ce fichier.</li>
+<li>Rendez-vous dans le chat et tapez la commande <code>/fix</code>.<br />
+  L'assistant vous indiquera alors comment résoudre ces erreurs de compilation.</li>
+</ul>
+<p>Avant de continuer, remettez les <strong><code>import</code></strong> et assurez-vous que le code compile et que les tests passent.</p>
+<blockquote>
+<p><strong>Rappel :</strong> <code>/fix</code> est un alias qui permet d'éviter d'écrire entièrement "Fix problems and compile errors".</p>
+</blockquote>
+<h3 id="refactorer-un-bout-de-code">Refactorer un bout de code<a class="headerlink" href="#refactorer-un-bout-de-code" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Revenez dans la classe <code>Calculator</code> et sélectionnez (surlignez) tout le code de la méthode <code>divide</code>, qui fera office de code à refactorer.</p>
+</li>
+<li>
+<p>En (re)lisant ce code, voua avez détectez un <strong>smell code</strong> au niveau du <strong>nommage</strong> des paramètres de la méthode, demandez de l'aide à l'assistant en tapant dans le chat : <code>use better names for parameters</code>.</p>
+</li>
+<li>
+<p>L'assistant vous suggère alors un nouveau bout de code avec des noms plus explicites qui corrige le smell code précédent comme vous le souhaitiez.</p>
+</li>
+<li>
+<p>Amenez votre curseur dans le coin <strong>en haut à droite du cadre qui contient le code proposé par l'assistant</strong> pour voir apparaître les deux icônes suivantes (l'ordre des icônes peut varier selon les IDE). Quoi qu'il en soit :</p>
+</li>
+<li>Une icône permet de copier le code proposé</li>
+<li>
+<p>Une icône permet d'insérer directement le code dans l'éditeur (celle avec la flèche).</p>
+</li>
+<li>
+<p>Cliquez sur l'<strong>icône qui permet d'insérer directement le code dans l'éditeur</strong> (flèche).</p>
+</li>
+<li>
+<p>Il ne reste plus qu'à constater que le bout de code initialement surligné a bien été remplacé dans la classe <code>Calculator</code> par le code proposé par l'assistant.</p>
+</li>
+<li>
+<p>Et comme pour tout refactoring, avant de continuer, il est nécessaire de relancer les tests pour vérifier qu'ils passent toujours et que le comportement n'a pas changé.</p>
+</li>
+</ul>
+<p>Nous avons vu précédemment qu'<strong>écrire un commentaire</strong> directement dans le code pour décrire le comportement souhaité est une <strong>approche pratique pour <em>"</em>interpeller<em>"</em> l'assistant de code et obtenir des suggestions directement à l'endroit approprié</strong>.
+Toutefois, une fois la suggestion de code validée, le commentaire reste, comme c'est le cas actuellement dans la classe <code>Calculator</code> pour les méthodes  <code>squareRoot</code> et  <code>logarithm</code> générées précédemment par l'assistant.</p>
+<p>Or, garder <strong>un commentaire expliquant ce que fait le code est considéré comme un code smell</strong> (mauvaise pratique), surtout si le nom des méthodes est déjà explicite. Un petit refactoring s'impose pour éliminer cette <em>mauvaise odeur</em> du code.</p>
+<ul>
+<li>
+<p>Pour supprimer ces commentaires, sélectionnez le code des deux méthodes, y compris leurs commentaires et demandez à l'assistant d'éliminer ces commentaires en tapant dans le chat :
+<code>supprimer les commentaires</code>
+(ou <code>remove comments</code> si vous préférez lui parler en anglais)</p>
+</li>
+<li>
+<p>Ensuite, cliquez sur l'icône avec la flèche pour accepter la suggestion de l'assistant et insérer directement le code corrigé par l'assistant dans le fichier source, remplaçant ainsi la portion de code précédemment sélectionnée.</p>
+</li>
+</ul>
+<p><strong>Remarque :</strong> Vous auriez également pu sélectionner tout le code de la classe. Cette petite manipulation vise à montrer que le refactoring (remaniement de code) par l'assistant n'est pas limité à une méthode unique, mais peut s'appliquer sur un bout de code plus important 😉</p>
+<ul>
+<li>Et comme pour tout refactoring, n'oubliez pas de terminer en relançant les tests.</li>
+</ul>
+<h3 id="demander-comment-ameliorer-la-qualite-du-code">Demander comment améliorer la qualité du code<a class="headerlink" href="#demander-comment-ameliorer-la-qualite-du-code" title="Permanent link">&para;</a></h3>
+<p>Bien sûr, il est toujours possible d'utiliser le chat de l'assistant de code comme un chat d'une IA classique, en formulant des requêtes variées et plus ou moins précises pour améliorer la qualité du code.</p>
+<ul>
+<li>Par exemple, tapez dans le chat une question du type :
+<code>comment améliorer la qualité de ce code ?</code>
+dans la langue de votre choix (français ou anglais) :  <code>how would you improve this code ?</code></li>
+</ul>
+<p>Pour l'instant, contentez-vous simplement de dialoguer avec votre assistant de code.
+Peut-être que la réponse qu'il vous fournira satisfera votre curiosité<br />
+Toutefois, si vous souhaitez une réponse plus détaillée ou orientée vers un objectif bien précis, vous pouvez bien sûr poursuivre la conversation avec l'assistant afin d'affiner ses réponses/suggestions.</p>
+<p><em>Lors du prompt précédent autour de la qualité de code, votre assistant vous a peut-être indiqué que  </em><em>«Utilisez des commentaires Javadoc pour documenter les méthodes publiques.»</em><em> pouvait être considéré, </em><em>selon lui</em><em>, comme un </em><em>critère de qualité</em><em>.</em></p>
+<h2 id="generer-facilement-de-la-documentation-doc">Générer facilement de la documentation : <code>/doc</code><a class="headerlink" href="#generer-facilement-de-la-documentation-doc" title="Permanent link">&para;</a></h2>
+<p>Les <strong>commentaires Javadoc</strong> sont différents des <strong>simples commentaires</strong> dans le code.
+Pour en savoir plus (et vous convaincre cette différence), demandez de l'aide à votre assistant de code en lui demandant de répondre à la question suivante :
+<code>Quelle est la différence entre des commentaires javadoc et de simples commentaires ?</code></p>
+<p>Votre assistant vous expliquera probablement que <strong>les commentaires Javadoc sont utilisés pour générer de la documentation d'une API.</strong></p>
+<p>Par exemple, la <strong>Javadoc du SDK de Java</strong> (disponible sur le site Oracle : <a href="https://docs.oracle.com">https://docs.oracle.com</a>) est générée à partir des commentaires Javadoc présents dans les classes Java du SDK, que vous utilisez dans vos programmes. Ainsi, si votre classe Java est destinée à devenir une API, utilisable par des développeurs externes, les commentaires Javadoc deviennent, dans ce cas d'usage, un critère important de qualité.</p>
+<p>Mais tout développeur sait qu'écrire de la documentation est une tâche fastidieuse.
+Heureusement, l'assistant de code peut vous aider à automatiser cette tâche et améliorer votre productivité grâce à la commande slash
+ <code>/doc</code>.</p>
+<ul>
+<li>
+<p>Revenez sur la classe <code>Calculator</code> et tapez dans le chat : <code>/doc</code>
+(qui correspond en réalité à la phrase complète <code>Document current selection of code</code>)</p>
+</li>
+<li>
+<p>L'assistant de code vous proposera alors <strong>le code de la classe documenté avec les commentaires Javadoc</strong> qu'il vient de générer</p>
+</li>
+<li>
+<p>Sélectionnez tout le code de la classe <code>Calculator</code> et cliquez sur l'icône d'insertion de code (avec la flèche) pour remplacer le code existant par cle code documenté.</p>
+</li>
+<li>
+<p>Avant de continuer, relancez bien sûr les tests pour vérifier qu'ils continuent de passer (et que l'assistant de code n'a pas modifié le comportement de votre code, mais s'est bien juste contenté d'ajouter des commentaires)</p>
+</li>
+</ul>
+<p><em>Au fil de vos échanges avec l'assistant, vous aurez sans doute remarqué que </em><em>ce dernier ne se contente pas de répondre à vos demandes. Il vous suggère également une question (en lien avec votre demande) pour vous aider à affiner votre prompt ou à approfondir le sujet sur lequel vous interagissez.</em>**</p>
+<h2 id="approfondir-un-sujet-en-lien-avec-le-developpement-logiciel">Approfondir un sujet en lien avec le développement logiciel<a class="headerlink" href="#approfondir-un-sujet-en-lien-avec-le-developpement-logiciel" title="Permanent link">&para;</a></h2>
+<p>Suite à la commande <code>/doc</code>, votre assistant de code vous a généré le code documenté demandé.<br />
+Si vous consultez attentivement le chat, vous remarquerez probablement qu'<strong>il vous a aussi proposé une question pour approfondir vos actions ou vos connaissances autour de la documentation</strong>.<br />
+Selon vos besoins ou votre curiosité, vous êtes libre de cliquer sur la question suggérée ou de l'ignorer.</p>
+<p>Dans cette partie du tutoriel, il est temps <strong>d'explorer ces questions suggérées</strong> par votre assistant et d'en tirer parti <strong>pour en apprendre davantage sur la documentation dans un projet</strong>.</p>
+<ul>
+<li>
+<p>Votre assistant de code vous suggère peut-être la question suivante :
+<code>What other documentation styles can be used for Java code?</code>
+Si ce n'est pas le cas, choisissez la question qui vous est proposée ou tapez directement cette question dans le chat.</p>
+</li>
+<li>
+<p>Vous pouvez ensuite poursuivre avec une question comme (suggérée ou tapée) :
+<code>What are some best practices for writing documentation in Java?</code></p>
+</li>
+<li>
+<p>Et pour terminer :
+<code>What are some common mistakes to avoid when writing documentation in Java?</code></p>
+</li>
+</ul>
+<p>Pour des recherches simples, ces échanges permettent d'explorer directement les connaissances de l'assistant dans votre IDE sans avoir besoin de consulter des ressources externes.</p>
+<h2 id="mais-copilot-nest-quun-assistant-autour-du-developpement-logiciel">Mais Copilot n'est qu'un assistant autour du développement logiciel<a class="headerlink" href="#mais-copilot-nest-quun-assistant-autour-du-developpement-logiciel" title="Permanent link">&para;</a></h2>
+<p>Comme tout modèle de langage, les assistants de code (comme Copilot) ont été entraînés sur un ensemble de données spécifiques. Il est important de garder à l'esprit que l'assistant de code que vous utilisez dans ce tutoriel, intégré à votre IDE, est <strong>spécifiquement conçu pour le développement logiciel et a donc été entraîné sur des connaissances relatives à ce domaine</strong>.</p>
+<p>Ainsi, le chat de votre assistant de code ne remplacera pas celui d'un modèle de langage plus généraliste, tel que ChatGPT, bien que les deux soient basés sur OpenAI.</p>
+<ul>
+<li>Pour vous en convaincre, posez la question suivante à votre assistant de code :<br />
+<code>What is the best documentation for visiting the city of Limoges?</code></li>
+</ul>
+<p>Et vous obtiendrez sûrement une réponse du type :<br />
+<strong><em>I'm sorry, but I can only assist with developer-related questions.<br />
+If you have any questions about programming or need help with your code,<br />
+feel free to ask!</em></strong></p>
+<p>Cela vous montre les limites de l'assistant de code par rapport à un modèle généraliste.</p>
+<h2 id="guider-pas-a-pas-la-prise-en-main-de-nouveaux-outils">Guider pas à pas la prise en main de nouveau(x) outil(s)<a class="headerlink" href="#guider-pas-a-pas-la-prise-en-main-de-nouveaux-outils" title="Permanent link">&para;</a></h2>
+<p>Vous venez de demander à votre assistant de code de générer des commentaires Javadoc, mais savez-vous comment <strong>générer la Javadoc</strong> de votre projet et où/comment la visualiser ?</p>
+<ul>
+<li>Qu'à cela ne tienne, votre assistant de code est là pour vous aider à prendre en main facilement ce « <em>nouvel outil</em> » qu'est la javadoc. Pour cela, posez-lui la question suivante dans le chat :
+<code>Sous IntelliJ, comment générer la javadoc de mon projet ?</code><br />
+<em>Bien sûr, vous remplacerez </em><em>IntelliJ</em><em> par le nom de l'IDE que vous utilisez.</em> 😉</li>
+</ul>
+<h3 id="remarques">Remarques<a class="headerlink" href="#remarques" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Si vous aviez posé une question plus générale, comme :<br />
+<code>Comment générer la Javadoc de mon projet ?</code></li>
+</ul>
+<p>Il y a des chances (n'oubliez pas le côté probabiliste des LLM dans la GenIA) que l'assistant vous explique comment utiliser la ligne de commande <strong>javadoc</strong> (l'outil de base du SDK permettant de générer la documentation). Mais si ce n'est pas le cas, reformulez de manière plus précise :<br />
+<code>Comment générer la Javadoc de mon projet en ligne de commande ?</code></p>
+<p><strong>En étant précis dans votre prompt</strong> (en mentionnant explicitement l'environnement de travail, comme un IDE ou la ligne de commande), <strong>l'assistant de code adaptera sa réponse au <em>contexte</em> de votre demande</strong>.</p>
+<ul>
+<li>Puisque l'assistant de code peut vous expliquer précisément comment générer la Javadoc dans un IDE spécifique, vous vous demandez peut-être s'il pourrait réaliser cette action lui-même. Testez-le en lui demandant :<br />
+<code>Pourrais-tu me générer la Javadoc de ce projet ?</code></li>
+</ul>
+<p>Que se passe-t-il ? Quelle réponse obtenez-vous de la part de votre assistant de code ?</p>
+<h2 id="ameliorer-la-pertinence-des-reponses-de-copilot-en-ciblant-le-contexte-du-prompt-avec-des-references-agents-de-conversation">Améliorer la pertinence des réponses de Copilot en ciblant le contexte du prompt avec des références (agents de conversation)<a class="headerlink" href="#ameliorer-la-pertinence-des-reponses-de-copilot-en-ciblant-le-contexte-du-prompt-avec-des-references-agents-de-conversation" title="Permanent link">&para;</a></h2>
+<p>Nous avons vu précédemment que l'assistant de code Copilot propose des <strong>commandes slash</strong>, qui permettent de <strong>lancer rapidement des actions ou tâches récurrentes sous forme de raccourcis</strong>.</p>
+<p>Dans un même soucis de simplification d'écriture/lecture du prompt tout en veillant <strong>à définir au mieux le context</strong>e, Copilot propose d'autres types de raccourcis. Il s'agit des <strong>agents de conversation</strong> tels que les variables (<strong>#</strong>) et les participants de conversation (<strong>@</strong>), qui visent à rendre vos <strong>interactions plus fluides et efficaces</strong>.</p>
+<h3 id="variable-de-conversation-notation">Variable de conversation : notation #<a class="headerlink" href="#variable-de-conversation-notation" title="Permanent link">&para;</a></h3>
+<p>Par défaut, le chat de copilote se réfère au fichier que vous avez ouvert ou au code que vous avez sélectionné.</p>
+<p>Les variables de conversation (<strong>#</strong>) vous permettent de <strong>restreindre la portée des résultats de Copilot</strong> en <strong>précisant le contexte de manière plus ciblée</strong>.</p>
+<p>Voici quelques exemples d'utilisation :</p>
+<ul>
+<li><strong>référencer un fichier</strong> en ajoutant simplement le symbole <strong>#</strong> devant le nom du fichier :</li>
+<li><strong>référencer un fichier spécifique</strong> :
+    <code>Où sont les tests dans #MonFichier.java ?</code></li>
+<li><strong>référencer plusieurs fichiers</strong> :
+    <code>Comment ces fichiers sont-ils liés #MonFichier.java #MonFichier2.java ?</code></li>
+<li>
+<p><strong>référencer des lignes spécifiques dans un fichier</strong> :
+    <code>Expliquez cette fonction #MonFichier.java : 66-72 ?</code></p>
+</li>
+<li>
+<p><strong>référencer une méthode, une classe ou une fonction</strong> en ajoutant de la même manière <strong>#</strong> devant le nom de la méthode, classe ou fonction concernée.</p>
+</li>
+</ul>
+<h3 id="participant-de-conversation-notation">Participant de conversation : notation @<a class="headerlink" href="#participant-de-conversation-notation" title="Permanent link">&para;</a></h3>
+<p>Pour référencer l'ensemble de la solution active dans l'IDE, vous pouvez utiliser l'agent de conversation <strong>@workspace</strong>.
+Ce <strong>participant de conversation</strong> permet à Copilot de tirer parti de toutes les informations disponibles dans vos fichiers, projets et configurations actuellement ouverts dans votre IDE, pour proposer des suggestions plus adaptées.
+Ainsi, utiliser <strong>@workspace</strong> dans un prompt exploitera l'ensemble du contexte de votre espace de travail.</p>
+<p>D'autres participants comme <strong>@terminal</strong> ou <strong>@github</strong> sont également disponibles pour interagir avec ces environnements spécifiques.</p>
+<p>Pour en savoir plus sur les actions récurrentes et les agents de conversion, vous pouvez consulter les liens suivants :</p>
+<ul>
+<li><a href="https://docs.github.com/fr/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide">GitHub Copilot Documentation</a></li>
+<li><a href="https://learn.microsoft.com/fr-fr/visualstudio/ide/copilot-chat-context">Copilot Chat Context</a></li>
+</ul>
+<p>Après cette rapide prise en main de votre assistant de code, vous allez maintenant explorer et mettre en œuvre dans la suite de ce tutoriel quelques cas d'usages sur des projets déjà existants plus ou moins complexes</p>
+<hr />
+<p><strong><em>Accédez donc maintenant à la partie suivante qui est : <a href="../3_ProjetExistantSimple/">3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple</a> ou retournez à l'<a href="../">Accueil</a>.</em></strong></p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Navigation de pied de page">
+        <a href="../1_Installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Précédent</a>
+        <a href="../3_ProjetExistantSimple/" class="btn btn-neutral float-right" title="Mise en place de nouvelles règles métiers dans un projet simple">Suivant <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Générée avec <a href="https://www.mkdocs.org/">MkDocs</a> avec un <a href="https://github.com/readthedocs/sphinx_rtd_theme">thème</a> fourni par <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../1_Installation/" style="color: #fcfcfc">&laquo; Précédent</a></span>
+    
+    
+      <span><a href="../3_ProjetExistantSimple/" style="color: #fcfcfc">Suivant &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
