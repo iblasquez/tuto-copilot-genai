@@ -1,12 +1,12 @@
-name: Deploy MkDocs to GitHub Pages
+name: Deploy MkDocs site to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # ou 'master' selon ta branche par défaut
+      - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,8 +20,36 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-static-i18n mkdocs-material
+          pip install mkdocs mkdocs-material
 
-      - name: Deploy to GitHub Pages
+      - name: Build MkDocs site
         run: |
-          mkdocs gh-deploy --force
+          mkdocs build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./site
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+# from  https://thomaswildetech.com/software-development/github/workflows/deploy-to-github-pages/
