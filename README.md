@@ -7,11 +7,11 @@
 ---
 
 *Ce tutoriel a pour objectif de présenter quelques cas d'usage des assistants de code basés sur des modèles d'IA génératives. Il vise également à sensibiliser aux avantages de ces outils, tels que l'amélioration de la productivité et l'optimisation des pratiques de développement, tout en mettant en lumière leurs limites.*
-La **version française** de ce tutoriel est disponible [ici](.\docs\fr\index.md)
+La **version française** de ce tutoriel est disponible [ici](./docs/fr/index.md)
 
 ---
 *This tutorial aims to present several use cases of AI coding assistants powered by generative models. It also seeks to raise awareness of the benefits of these tools—such as improved productivity and enhanced development practices—while highlighting their limitations.*
-The **english version (in progress)** of this tutorial is available [here](.\docs\en\index.md)
+The **english version (in progress)** of this tutorial is available [here](./docs/en/index.md)
 
 ---
 
@@ -29,3 +29,4 @@ Attribution – NonCommercial – ShareAlike](https://creativecommons.org/licens
 Learn more about [Creative Commons licenses](https://creativecommons.org/licenses/?lang=en)...
 
 <!--https://www.mkdocs.org/getting-started/>
+<!--https://blog.stephane-robert.info/docs/documenter/mkdocs/>

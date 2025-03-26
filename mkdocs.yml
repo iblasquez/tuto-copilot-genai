@@ -1,0 +1,33 @@
+site_name: Copilot & Co Tutorial
+site_url: https://iblasquez.github.io/tuto-copilot-genai/
+
+theme:
+  name: readthedocs
+
+nav:
+  - version française:
+      - Accueil: fr/index.md
+      - Installation: fr/1_Installation.md
+      - Prise en main de l'assistant de code : fr/2_PriseEnMainAssistant.md
+      - Mise en place de nouvelles règles métiers dans un projet simple : fr/3_ProjetExistantSimple.md
+      - Reprise d'un projet complexe existant (legacy code) : fr/4_ProjetExistantComplexe.md
+      - Quelques liens utiles : fr/Liens.md
+  - english version:
+      - Home: en/index.md
+
+plugins:
+ - i18n:
+      default_language: en
+      languages:
+        - locale: en
+          name: English
+          default: true
+        - locale: fr
+          name: Français
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - toc:
+      permalink: true
