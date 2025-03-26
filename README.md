@@ -6,7 +6,8 @@
 
 *Ce tutoriel a pour objectif de présenter quelques cas d'usage des assistants de code basés sur des modèles d'IA génératives. Il vise également à sensibiliser aux avantages de ces outils, tels que l'amélioration de la productivité et l'optimisation des pratiques de développement, tout en mettant en lumière leurs limites.*
 
-**👉 Go to the tutorial : <https://iblasquez.github.io/tuto-copilot-genai>**
+**👉 Go to the tutorial : [here](docs/index.md)**
+<!--<https://iblasquez.github.io/tuto-copilot-genai>**>
 
 ## Shall We Talk About It?
 
