@@ -316,7 +316,7 @@ Après cette rapide prise en main de votre assistant de code, vous allez mainten
 
 ---
 
-***Accédez donc maintenant à la partie suivante qui est : [3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple][contenu_partie_3] ou retournez à l'[Accueil](README.md).***
+***Accédez donc maintenant à la partie suivante qui est : [3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple][contenu_partie_3] ou retournez à l'[Accueil](index.md).***
 
 ---
 

@@ -25,7 +25,7 @@ Il est à noter que la **documentation de GitHub Copilot** est disponible sous [
 
 ---
 
-***Accédez donc maintenant à la partie suivante qui est : [2. Prise en main de l'assistant de code : premiers pas sur un exemple simple][contenu_partie_2] ou retournez à l'[Accueil](README.md).***
+***Accédez donc maintenant à la partie suivante qui est : [2. Prise en main de l'assistant de code : premiers pas sur un exemple simple][contenu_partie_2] ou retournez à l'[Accueil](index.md).***
 
 ---
 

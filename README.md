@@ -1,50 +1,31 @@
-# Tutoriel Copilot & Co
+# Copilot & Co Tutorial
 
-## Quid des assistants de code basé sur l'IA générative (Gen AI) ?
+---
 
-***Disclaimer*** : *Ce tutoriel a pour objectif de présenter quelques cas d'usage des assistants de code basés sur des modèles d'IA génératives. Il vise également à sensibiliser aux avantages de ces outils, tels que l'amélioration de la productivité et l'optimisation des pratiques de développement, tout en mettant en lumière leurs limites.*
+## Developing Critical Thinking with AI Coding Assistants: An Educational Experience focusing on Testing and Legacy Code
 
-*Initialement conçu pour des étudiants bénéficiant de l'offre [GitHub Education][githubEducationLink], GitHub Copilot a été choisi pour illustrer ces cas d'usage. Cependant, il est tout à fait possible de suivre ce tutoriel en utilisant d'autres assistants de code, comme [Codeium][codeiumLink], [Cursor][cursorLink], [Supermaven](https://supermaven.com/) ou [Tabnine][tabnineLink],... qui offrent des services similaires. Le terme "**assistant de code**" sera donc privilégié autant que possible.*
+---
 
-Dans ce tutoriel, nous verrez comment :
+*Ce tutoriel a pour objectif de présenter quelques cas d'usage des assistants de code basés sur des modèles d'IA génératives. Il vise également à sensibiliser aux avantages de ces outils, tels que l'amélioration de la productivité et l'optimisation des pratiques de développement, tout en mettant en lumière leurs limites.*
+La **version française** de ce tutoriel est disponible [ici](.\docs\fr\index.md)
 
-* **[1. Installation de l'assistant de code Github Copilot][Installation]**
-* **[2. Prise en main de l'assistant de code : premiers pas sur un exemple simple][contenu_partie_2]**
-* **[3. Aider à la mise en place de nouvelles règles métiers sur un projet existant simple][contenu_partie_3]**
-* **[4. Quid d'un assistant de code pour la reprise d'un projet complexe existant (legacy code)][contenu_partie_4]**
+---
+*This tutorial aims to present several use cases of AI coding assistants powered by generative models. It also seeks to raise awareness of the benefits of these tools—such as improved productivity and enhanced development practices—while highlighting their limitations.*
+The **english version (in progress)** of this tutorial is available [here](.\docs\en\index.md)
 
-Et vous trouverez [quelques liens utiles][contenu_liens] consultés pendant la rédaction de ce tutoriel.
+---
 
-Ce tutoriel est accompagné d'un formulaire pour m'aider à analyser les différents comportements des assistants de code et votre perception des assistants de code. N'hésitez pas à compléter ce **formulaire accessible [ici](https://forms.gle/YquLZ7CMsmmgvwHUA)** en même temps que vous réalisez le tutoriel.
+## Shall We Talk About It?
 
-Pour commencer le tutoriel, c'est par [là][Installation] si vous avez besoin d'installer Github Copilot dans votre IDE préféré.  
-Sinon vous pouvez commencer directement [ici][contenu_partie_2] pour prendre en main et faire vos premiers pas avec votre assistant de code préféré.
+For discussions, head over [here](https://github.com/iblasquez/tuto-copilot-genai/issues)  
+For content suggestions or modifications, go [there](https://github.com/iblasquez/tuto-copilot-genai/pulls)
 
-## On en discute ?
+## License
 
-Pour les discussions, c'est par [là](https://github.com/iblasquez/tuto-copilot-genai/issues)  
-Pour les propositions de contenu, de modification par [ici](https://github.com/iblasquez/tuto-copilot-genai/pulls)  
+This document is licensed under CC BY-NC-SA:  
+[Creative Commons  
+Attribution – NonCommercial – ShareAlike](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-## Licence
+Learn more about [Creative Commons licenses](https://creativecommons.org/licenses/?lang=en)...
 
-Ce document est placé sous licence CC BY-NC-SA :  
-[Creative Commons
-Attribution - Pas d'Utilisation Commerciale - Partage dans les Mêmes Conditions](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-
-En savoir plus sur [les licences Creative Commons](https://creativecommons.org/licenses/?lang=fr-FR) ...
-
-Toutefois, toute personne enseignant à l'Université de Limoges souhaitant utiliser ces documents doit demander une autorisation préalable :smile:
-
-[Installation]: 1_Installation.md
-[contenu_partie_2]: 2_PriseEnMainAssistant.md
-[contenu_partie_3]: 3_ProjetExistantSimple.md
-[contenu_partie_4]: 4_ProjetExistantComplexe.md
-[contenu_liens]: Liens.md
-
-<!-- https://www.jdbonjour.ch/cours/markdown-pandoc/ >
-https://www.statpower.net/Content/310/R%20Stuff/SampleMarkdown.html -->
-
-[tabnineLink]: https://www.tabnine.com
-[codeiumLink]: https://codeium.com
-[cursorLink]: https://www.cursor.com
-[githubEducationLink]: https://github.com/education
+<!--https://www.mkdocs.org/getting-started/>

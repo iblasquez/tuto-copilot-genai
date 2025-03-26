@@ -265,12 +265,12 @@ Si vous souhaitez aller plus loin avec ce code (effectuer du refactoring, ajoute
 
 Dès que vous pouvez exécuter (**Run**ner)  le `Main` du module `cli` depuis votre IDE et que vous visualisez une exécution correcte dans la console (comme montré dans l'exemple ci-dessus pour une **exécution du `main` sans paramètre**), vous serez prêt à poursuivre.
 
-![Console main de cli sans paramètre](./images/ConsoleMainCliSansParametre.png "Console main de cli sans paramètre")
+![Console main de cli sans paramètre](../../images/ConsoleMainCliSansParametre.png "Console main de cli sans paramètre")
 
 Ensuite, toujours depuis l'IDE, lancez le `Main` du module `cli` **en passant comme premier** (et seul) **paramètre le chemin absolu du fichier `WordAnalyticsService.java` du projet `codelinguo`** que vous avez sous les yeux.  
 Si tout se déroule correctement, vous devriez voir un affichage dans la console similaire à la capture d'écran ci-dessous :
 
-![Console main de cli avec chemin WordAnalyticsService.java comme paramètre](./images/ConsoleMainCliPourWordAnalyticsService.png "Console main de cli avec chemin WordAnalyticsService.java comme paramètre")
+![Console main de cli avec chemin WordAnalyticsService.java comme paramètre](../../images/ConsoleMainCliPourWordAnalyticsService.png "Console main de cli avec chemin WordAnalyticsService.java comme paramètre")
 
 **Bien entendu, l'assistant de code est aussi votre ami pour résoudre des problèmes liés au bon fonctionnement de votre IDE ou à votre environnement de travail. Il ne se limite pas à l'interaction avec le code.**  
 Si nécessaire, n'hésitez pas à solliciter son aide en lui posant, par exemple, l'une des questions suivantes :
@@ -341,7 +341,7 @@ Après ces échanges, l'implémentation de la méthode `processFile` devrait vou
 
 - Relancez les tests en demandant cette fois-ci la couverture de code.
 
-![Couverture de code initiale de la classe WordAnalyticsServcice](./images/CouvertureCodeWAS_Initiale.png "Couverture de code initiale de la classe WordAnalyticsServcice")
+![Couverture de code initiale de la classe WordAnalyticsServcice](../../images/CouvertureCodeWAS_Initiale.png "Couverture de code initiale de la classe WordAnalyticsServcice")
 
 - Consultez le code de la classe `WordAnalyticsService` afin de constater que la méthode `glossaryCoverageRatio` n'est actuellement pas couverte par les tests. Demandez à votre assistant de vous aider à couvrir cette méthode, par exemple, avec la commande :  
   `/tests glossaryCoverageRatio`
@@ -423,7 +423,7 @@ Votre assistant peut vous aider à en savoir plus en posant la question suivante
 
 La réponse de l'assistant sera probablement similaire à la capture d'écran ci-dessous :
 
-![A propos de l'annotation TempDir](./images/TempDirAPropos.png "A propos de l'annotation TempDir")
+![A propos de l'annotation TempDir](../../images/TempDirAPropos.png "A propos de l'annotation TempDir")
 
 ### 4.3.c Aider au refactoring
 
@@ -506,6 +506,6 @@ Si vous souhaitez en savoir plus sur le projet qui se cache derrière le code ut
 
 ---
 
-***Accédez donc maintenant à la partie suivante qui est : [Liens utilisés pour la rédaction du tutoriel](Liens.md)ou retournez à l'[Accueil](README.md).***
+***Accédez donc maintenant à la partie suivante qui est : [Liens utilisés pour la rédaction du tutoriel](Liens.md)ou retournez à l'[Accueil](index.md).***
 
 ---
