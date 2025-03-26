@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Mise en place de nouvelles r\u00e8gles m\u00e9tiers dans un projet simple";
-        var mkdocs_page_input_path = "fr\\3_ProjetExistantSimple.md";
+        var mkdocs_page_input_path = "fr/3_ProjetExistantSimple.md";
         var mkdocs_page_url = "/tuto-copilot-genai/fr/3_ProjetExistantSimple/";
       </script>
     
@@ -30,8 +30,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../../en/" class="icon icon-home"> Copilot & Co Tutorial
-        </a>
+          <a href="../.." class="icon icon-home"> Copilot & Co Tutorial
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
@@ -94,13 +98,13 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../en/">Copilot & Co Tutorial</a>
+          <a href="../..">Copilot & Co Tutorial</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../en/" class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">version française</li>
       <li class="breadcrumb-item active">Mise en place de nouvelles règles métiers dans un projet simple</li>
     <li class="wy-breadcrumbs-aside">
@@ -361,7 +365,7 @@ Faites compiler le code en ajoutant éventuellement les <code>imports</code> né
 </ul>
 <p>Si un test échoue, examinez attentivement la <strong>qualité des données utilisées dans ce test</strong>.
     En effet, si tout comme moi, les probabilités ne sont pas avec vous aujourd'hui, vous pourriez être victime de l'<strong>hallucination</strong> suivante :
-<img alt="hallucinataion sur les données du test généré" src="../../images/Hallucination_DonneesTest.png" title="hallucinataion sur les données du test généré" /></p>
+<img alt="hallucinataion sur les données du test généré" src="../../assets/Hallucination_DonneesTest.png" title="hallucinataion sur les données du test généré" /></p>
 <p>&#8594; À première vue, les données du test peuvent paraître correctes, mais le test échoue sur l'assertion <code>assertTrue</code>. En effet, l'assistant de code a utilisé, par erreur, la valeur d'un <strong>auteur</strong> d'un livre comme paramètre dans la méthode <code>searchBookByTitle</code> au lieu de la valeur d'un <strong>titre</strong>.
     Cette confusion est probablement due à la <strong><em>primitive obsession</em></strong> dans la signature du constructeur de <code>Book</code>, qui prend trop de paramètres de type <code>String</code>.
     <strong>L'assistant n'a donc pas su faire la distinction entre les différents paramètres <code>String</code> et n'a pas reconnu celui correspondant au <code>titre</code>.</strong>
@@ -371,7 +375,7 @@ Faites compiler le code en ajoutant éventuellement les <code>imports</code> né
     Au passage, on peut également noter que l'ISBN utilisé dans l'exemple du livre <em>Effective Java</em> n'était pas le <em>bon</em> car c'est en réalité le véritable ISBN du livre <em>Design Patterns: Elements of Reusable Object Oriented Software</em> du Gang of Four 😉.</p>
 <p>&#8594; Pour améliorer la lisibilité (et donc la compréhension) de votre test, il est recommandé d'ajuster le test avec de <strong>véritables valeurs métiers</strong>, plus pertinentes et cohérentes.<br />
 Le test précédent, revisité dans ce sens, ressemble maintenant à cela :</p>
-<p><img alt="Correction de l'hallucinataion sur les données du test généré" src="../../images/Hallucination_DonneesTest_Correction.png" title="Correction de l'hallucinataion sur les données du test généré" /></p>
+<p><img alt="Correction de l'hallucinataion sur les données du test généré" src="../../assets/Hallucination_DonneesTest_Correction.png" title="Correction de l'hallucinataion sur les données du test généré" /></p>
 <p>Cette hallucination nous donne l'occasion de rappeler qu'<strong>il faut être très vigilant à la qualité des données dans les tests générés</strong>, et que les valeurs prises comme exemple, tout comme le code, nécessitent une relecture de votre part.<br />
 Toutefois, il est intéressant de remarquer qu'une <strong>hallucination</strong> de l'assistant peut aussi <strong>mettre sur la voie des problèmes de conception</strong> (mauvaises odeurs), que seule votre expertise détectera.</p>
 <ul>
@@ -445,6 +449,7 @@ Demandez à votre assistant via le chat :
     <script>var base_url = "../..";</script>
     <script src="../../js/theme_extra.js"></script>
     <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);

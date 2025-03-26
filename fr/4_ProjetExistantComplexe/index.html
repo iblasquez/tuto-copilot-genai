@@ -13,7 +13,7 @@
       <script>
         // Current page data
         var mkdocs_page_name = "Reprise d\u0027un projet complexe existant (legacy code)";
-        var mkdocs_page_input_path = "fr\\4_ProjetExistantComplexe.md";
+        var mkdocs_page_input_path = "fr/4_ProjetExistantComplexe.md";
         var mkdocs_page_url = "/tuto-copilot-genai/fr/4_ProjetExistantComplexe/";
       </script>
     
@@ -30,8 +30,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../../en/" class="icon icon-home"> Copilot & Co Tutorial
-        </a>
+          <a href="../.." class="icon icon-home"> Copilot & Co Tutorial
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
@@ -118,13 +122,13 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../en/">Copilot & Co Tutorial</a>
+          <a href="../..">Copilot & Co Tutorial</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../../en/" class="icon icon-home" aria-label="Docs"></a></li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">version française</li>
       <li class="breadcrumb-item active">Reprise d'un projet complexe existant (legacy code)</li>
     <li class="wy-breadcrumbs-aside">
@@ -398,10 +402,10 @@ Si vous souhaitez aller plus loin avec ce code (effectuer du refactoring, ajoute
 <p><em>Pour continuer ce tutoriel, l'objectif est simple : assurez-vous que le </em><em>projet compile</em><em> et que vous pouvez </em><em>lancer le <code>main</code> du module <code>cli</code> depuis l'IDE</em><em>. (Concentrez-vous uniquement sur ce <code>main</code>, cela garantit déjà un environnement de développement fonctionnel.)</em></p>
 </blockquote>
 <p>Dès que vous pouvez exécuter (<strong>Run</strong>ner)  le <code>Main</code> du module <code>cli</code> depuis votre IDE et que vous visualisez une exécution correcte dans la console (comme montré dans l'exemple ci-dessus pour une <strong>exécution du <code>main</code> sans paramètre</strong>), vous serez prêt à poursuivre.</p>
-<p><img alt="Console main de cli sans paramètre" src="../../images/ConsoleMainCliSansParametre.png" title="Console main de cli sans paramètre" /></p>
+<p><img alt="Console main de cli sans paramètre" src="../../assets/ConsoleMainCliSansParametre.png" title="Console main de cli sans paramètre" /></p>
 <p>Ensuite, toujours depuis l'IDE, lancez le <code>Main</code> du module <code>cli</code> <strong>en passant comme premier</strong> (et seul) <strong>paramètre le chemin absolu du fichier <code>WordAnalyticsService.java</code> du projet <code>codelinguo</code></strong> que vous avez sous les yeux.<br />
 Si tout se déroule correctement, vous devriez voir un affichage dans la console similaire à la capture d'écran ci-dessous :</p>
-<p><img alt="Console main de cli avec chemin WordAnalyticsService.java comme paramètre" src="../../images/ConsoleMainCliPourWordAnalyticsService.png" title="Console main de cli avec chemin WordAnalyticsService.java comme paramètre" /></p>
+<p><img alt="Console main de cli avec chemin WordAnalyticsService.java comme paramètre" src="../../assets/ConsoleMainCliPourWordAnalyticsService.png" title="Console main de cli avec chemin WordAnalyticsService.java comme paramètre" /></p>
 <p><strong>Bien entendu, l'assistant de code est aussi votre ami pour résoudre des problèmes liés au bon fonctionnement de votre IDE ou à votre environnement de travail. Il ne se limite pas à l'interaction avec le code.</strong><br />
 Si nécessaire, n'hésitez pas à solliciter son aide en lui posant, par exemple, l'une des questions suivantes :</p>
 <ul>
@@ -467,7 +471,7 @@ Vous pouvez approfondir ce concept avec des questions telles que :</p>
 <p>Relancez les tests en demandant cette fois-ci la couverture de code.</p>
 </li>
 </ul>
-<p><img alt="Couverture de code initiale de la classe WordAnalyticsServcice" src="../../images/CouvertureCodeWAS_Initiale.png" title="Couverture de code initiale de la classe WordAnalyticsServcice" /></p>
+<p><img alt="Couverture de code initiale de la classe WordAnalyticsServcice" src="../../assets/CouvertureCodeWAS_Initiale.png" title="Couverture de code initiale de la classe WordAnalyticsServcice" /></p>
 <ul>
 <li>
 <p>Consultez le code de la classe <code>WordAnalyticsService</code> afin de constater que la méthode <code>glossaryCoverageRatio</code> n'est actuellement pas couverte par les tests. Demandez à votre assistant de vous aider à couvrir cette méthode, par exemple, avec la commande :<br />
@@ -579,7 +583,7 @@ Votre assistant peut vous aider à en savoir plus en posant la question suivante
 <code>Pourrais-tu m'en dire plus sur  @TempDir ?</code></li>
 </ul>
 <p>La réponse de l'assistant sera probablement similaire à la capture d'écran ci-dessous :</p>
-<p><img alt="A propos de l'annotation TempDir" src="../../images/TempDirAPropos.png" title="A propos de l'annotation TempDir" /></p>
+<p><img alt="A propos de l'annotation TempDir" src="../../assets/TempDirAPropos.png" title="A propos de l'annotation TempDir" /></p>
 <h3 id="43c-aider-au-refactoring">4.3.c Aider au refactoring<a class="headerlink" href="#43c-aider-au-refactoring" title="Permanent link">&para;</a></h3>
 <p>Maintenant que le comportement est couvert par des tests, vous pouvez envisager sereinement un petit refactoring. Pour cela, demandez à l'assistant de vous proposer des améliorations en utilisant les commandes suivantes :
 <strong><code>/fix</code></strong> (vous pouvez préciser le nom de la méthode si vous souhaitez rester focalisé sur celle-ci)<br />
@@ -691,6 +695,7 @@ Vous pourriez commencer avec un prompt comme :</p>
     <script>var base_url = "../..";</script>
     <script src="../../js/theme_extra.js"></script>
     <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
