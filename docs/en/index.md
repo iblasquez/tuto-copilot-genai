@@ -13,7 +13,7 @@ In this tutorial, you will learn how to:
 * **[3. Assisting with the Implementation of New Business Rules in a Simple Legacy Project][part_3]**
 * **[4. Assisting with Working on Complex Legacy Project][part_4]**
 
-You will also find some useful [links][links] that were consulted while writing this tutorial.
+You will also find some [Useful Resources][Resources] that were consulted while writing this tutorial.
 
 This tutorial comes with a form. Feel free to [fill out this form](https://forms.gle/YquLZ7CMsmmgvwHUA) as you go through the tutorial.
 
@@ -37,7 +37,7 @@ Learn more about [Creative Commons licenses](https://creativecommons.org/license
 [part_2]: 2_GetStarted.md
 [part_3]: 3_SimpleLegacyProject.md
 [part_4]: 4_ComplexLegacyProject.md
-[links]: Links.md
+[resources]: Resources.md
 
 <!-- https://www.jdbonjour.ch/cours/markdown-pandoc/ >
 https://www.statpower.net/Content/310/R%20Stuff/SampleMarkdown.html -->
