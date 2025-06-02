@@ -14,7 +14,7 @@ nav:
       - Quelques liens utiles : fr/Liens.md
   - english version:
       - Home: en/index.md
-      - Useful Resources : fr/Resources.md
+      - Useful Resources : en/Resources.md
 
 
 markdown_extensions:
