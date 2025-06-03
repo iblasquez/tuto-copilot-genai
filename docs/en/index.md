@@ -34,7 +34,7 @@ This document is licensed under CC BY-NC-SA:
 Learn more about [Creative Commons licenses](https://creativecommons.org/licenses)
 
 [Installation]: 1_Installation.md
-[part_2]: 2_GetStarted.md
+[part_2]: 2_GettingStarted.md
 [part_3]: 3_SimpleLegacyProject.md
 [part_4]: 4_ComplexLegacyProject.md
 [resources]: Resources.md

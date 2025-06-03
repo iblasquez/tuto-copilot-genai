@@ -27,8 +27,8 @@ The official **GitHub Copilot documentation** is available on [GitHub Docs](http
 
 ---
 
-***Now go to the next section: [2. Getting Started with the AI Coding Assistant][part_2],or return to the [Home page](index.md)***
+***Now go to the next section: [2. Getting Started with the AI Coding Assistant][part_2], or return to the [Home page](index.md)***
 
 ---
 
-[part_2]: 2_GetStarted.md
+[part_2]: 2_GettingStarted.md

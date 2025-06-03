@@ -15,7 +15,9 @@ nav:
   - english version:
       - Home: en/index.md
       - Installation: en/1_Installation.md
+      - Getting Started with the AI Coding Assistant : fr/2_GettingStarted.md
       - Useful Resources : en/Resources.md
+      
 
 
 markdown_extensions:
