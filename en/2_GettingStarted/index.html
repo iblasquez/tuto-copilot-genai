@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://iblasquez.github.io/tuto-copilot-genai/en/2_GettingStarted/" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>2. Getting Started with an AI Coding Assistant: First Steps with a Simple Example - Copilot & Co Tutorial</title>
+    <title>Getting Started with the AI Coding Assistant - Copilot & Co Tutorial</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "2. Getting Started with an AI Coding Assistant: First Steps with a Simple Example";
+        var mkdocs_page_name = "Getting Started with the AI Coding Assistant";
         var mkdocs_page_input_path = "en/2_GettingStarted.md";
         var mkdocs_page_url = "/tuto-copilot-genai/en/2_GettingStarted/";
       </script>
@@ -55,12 +55,58 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">english version</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Home</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../1_Installation/">Installation</a>
                   </li>
-                  <li class="toctree-l1"><a class="" href="../../fr/2_GettingStarted.md">Getting Started with the AI Coding Assistant</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Getting Started with the AI Coding Assistant</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#generating-code-suggestions-from-comments-describing-intended-behavior">Generating Code Suggestions from Comments (Describing Intended Behavior)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#key-takeaways">Key Takeaways</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#generating-unit-test-code">Generating Unit Test Code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#explaining-how-code-works-explain">Explaining How Code Works (/explain)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#a-few-words-about-prompts">A Few Words About Prompts</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#copilot-slash-commands-prompting-support-for-common-developer-tasks">Copilot Slash Commands: Prompting Support for Common Developer Tasks</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#making-code-easier-to-fix-refactor-and-improve">Making Code Easier to Fix, Refactor, and Improve</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fixing-issues-fix">Fixing Issues: /fix</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#refactoring-a-piece-of-code">Refactoring a Piece of Code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#asking-how-to-improve-code-quality">Asking How to Improve Code Quality</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#easily-generate-documentation-doc">Easily Generate Documentation: /doc</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#exploring-topics-related-to-software-development">Exploring Topics Related to Software Development</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#but-copilot-is-still-just-a-software-development-assistant">But Copilot Is Still Just a Software Development Assistant</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#step-by-step-guidance-for-using-new-tools">Step-by-Step Guidance for Using New Tools</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#notes">Notes</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#improving-copilots-responses-by-targeting-prompt-context-with-references-conversation-agents">Improving Copilot's Responses by Targeting Prompt Context with References (Conversation Agents)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#conversation-variables-the-notation">Conversation Variables: The # Notation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conversation-participants-the-notation">Conversation Participants: The @ Notation</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../Resources/">Useful Resources</a>
                   </li>
@@ -79,7 +125,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">2. Getting Started with an AI Coding Assistant: First Steps with a Simple Example</li>
+          <li class="breadcrumb-item">english version</li>
+      <li class="breadcrumb-item active">Getting Started with the AI Coding Assistant</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -440,6 +487,10 @@ This <strong>participant</strong> allows Copilot to take full advantage of all t
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../1_Installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Resources/" class="btn btn-neutral float-right" title="Useful Resources">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -461,6 +512,10 @@ This <strong>participant</strong> allows Copilot to take full advantage of all t
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../1_Installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Resources/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
