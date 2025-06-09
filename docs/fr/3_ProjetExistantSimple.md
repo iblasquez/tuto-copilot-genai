@@ -17,7 +17,7 @@
 
 - [3.5 Discuter pour le plaisir de découvrir de nouveaux outils](#35-discuter-pour-le-plaisir-de-découvrir-de-nouveaux-outils)
 
-- [3.6 Aider à l'utilisation de streams et lambdas](#36-aider-à-lutilisation-de-streams-et-lambdas)
+- [3.6 Aider à l'utilisation de streams et lambdas](#36-ajout-de-la-fonctionnalité-searchbookbytitle)
 
 - [3.7 Suggérer du code plus complexe (avec streams)](#37-suggérer-du-code-plus-complexe-avec-streams)
 
@@ -63,7 +63,7 @@ Si nécessaire, ajustez **le code des tests** pour qu'il fonctionne, par exemple
 - Lancez les tests et la couverture de code.
 - Consultez la classe `LibraryMember`.
 
-Si certaines portions de la classe `LibraryMember` ne sont pas couvertes par les tests (et si vous souhaitez qu'elles le deviennent), sélectionnez ces parties de code et  générez de nouveaux tests avec la commande `/tests`. Il ne vous reste plus qu'à insérer le code des nouveaux tests dans la classe `LibraryMember`, de les exécuter et de vérifier à nouveau la couverture de code.
+Si certaines portions de la classe `LibraryMember` ne sont pas couvertes par les tests (et si vous souhaitez qu'elles le deviennent), sélectionnez ces parties de code et  générez de nouveaux tests avec la commande `/tests`. Il ne vous reste plus qu'à insérer le code des nouveaux tests dans la classe `LibraryMemberTest`, de les exécuter et de vérifier à nouveau la couverture de code.
 
 > **Rappel :** Dans un projet, l'objectif n'est pas nécessairement d'obtenir 100% de couverture.  
 
@@ -128,7 +128,6 @@ Pour être sûr de **tester avec des données de qualité**, vous allez maintena
 
   - `020161622X` quand votre test est censé vérifié qu'un **ISBN-10 est correct** avec la **présence d'un X**
     Cet ISBN-10 n'est autre que a version originale de 1999 du livre The Pragmatic Programmer" de Andrew Hunt et David Thomas.
-Cet ISBN-10 n'est autre que a version originale de 1999 du livre The Pragmatic Programmer" de Andrew Hunt et David Thomas.
 
   - `0321125215` quand votre test est censé vérifié qu'un **ISBN-10 est correct**
   Cet ISBN-10 est celui du livre *Domain Driven Design* d'Eric Evans.
@@ -196,7 +195,7 @@ Par curiosité, vous pourriez demander à votre assistant :
 
 Vous découvrirez ainsi qu'il existe plusieurs approches pour valider une adresse e-mail, en plus du pattern matching. Pourquoi réinventer la roue ? Après cette discussion enrichissante, vous pourrez choisir la solution la plus adaptée à vos besoins.
 
-## 3.6 Aider à l'utilisation de streams et lambdas
+## 3.6 Ajout de la fonctionnalité `searchBookByTitle`
 
 - Placez-vous à la fin de la classe `Library`, commencez à taper :  
   `public List<Book> search`  
