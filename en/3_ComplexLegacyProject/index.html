@@ -1321,22 +1321,25 @@ You may get responses such as:<br />
 </ul>
 <p>Then ask your assistant:</p>
 <ul>
-<li><code>Where is the JavaFileParser class used?</code>  </li>
+<li>
+<p><code>Where is the JavaFileParser class used?</code>  </p>
+</li>
 <li>
 <p>&#8594; If you're lucky (and the probabilities are in your favor), the assistant might point you to the following code snippet from the <code>FileReader</code> class:</p>
-<p><code>java
-private val fileSanitizers = mapOf(
-    ".java" to JavaFileParser(),
-    ".kt" to KotlinFileSanitizer(),
-    ".py" to PythonFileSanitizer(),
-    ".js" to JavascriptFileSanitizer(),
-    ".html" to HtmlFileSanitizer()
-)</code></p>
 </li>
-<li>
-<p>&#8594; If you didn’t get this code snippet, try rephrasing your question:<br />
-<code>Can you show me how JavaFileParser is used?</code></p>
-</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kd">private</span><span class="w"> </span><span class="n">val</span><span class="w"> </span><span class="n">fileSanitizers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapOf</span><span class="p">(</span>
+<span class="w">  </span><span class="s">&quot;.java&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nf">JavaFileParser</span><span class="p">(),</span>
+<span class="w">  </span><span class="s">&quot;.kt&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nf">KotlinFileSanitizer</span><span class="p">(),</span>
+<span class="w">  </span><span class="s">&quot;.py&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nf">PythonFileSanitizer</span><span class="p">(),</span>
+<span class="w">  </span><span class="s">&quot;.js&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nf">JavascriptFileSanitizer</span><span class="p">(),</span>
+<span class="w">  </span><span class="s">&quot;.html&quot;</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nf">HtmlFileSanitizer</span><span class="p">()</span>
+<span class="w">  </span><span class="p">)</span>
+</code></pre></div>
+
+<ul>
+<li>&#8594; If you didn’t get this code snippet, try rephrasing your question:<br />
+<code>Can you show me how JavaFileParser is used?</code></li>
 </ul>
 <p>If the assistant still doesn’t return the expected snippet (<strong>remember, generative AI responses are probabilistic, so even well-phrased prompts don’t guarantee results</strong>), go directly to the <code>FileReader</code> class and check whether the code is actually there.</p>
 <p>As mentioned at the beginning of this tutorial, <strong>no matter what answer you receive, it’s always best to verify it against the actual project content to ensure it’s not a <em>hallucination</em></strong>.<br />
@@ -1493,14 +1496,15 @@ It’s likely that some tests will fail because they contain hardcoded file path
 This will especially happen if the assistant generated test code similar to the following:</p>
 </li>
 </ul>
-<p><code>java
-   @Test
-   fun processFile_withEmptyJavaFile_returnsEmptyList() {
-       val parser = JavaFileParser()
-       val path = "src/test/resources/EmptyJavaFile.java"
-       val words = parser.processFile(path)
-       assertTrue(words.isEmpty())
-   }</code></p>
+<div class="codehilite"><pre><span></span><code><span class="nd">@Test</span>
+<span class="n">fun</span><span class="w"> </span><span class="nf">processFile_withEmptyJavaFile_returnsEmptyList</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">val</span><span class="w"> </span><span class="n">parser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JavaFileParser</span><span class="p">()</span>
+<span class="w">  </span><span class="n">val</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;src/test/resources/EmptyJavaFile.java&quot;</span>
+<span class="w">  </span><span class="n">val</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">parser</span><span class="p">.</span><span class="na">processFile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="w">  </span><span class="n">assertTrue</span><span class="p">(</span><span class="n">words</span><span class="p">.</span><span class="na">isEmpty</span><span class="p">())</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p><strong><em>To avoid this type of error, one solution is to use temporary files with the <code>@TempDir</code> annotation.</em></strong></p>
 <ul>
 <li>
