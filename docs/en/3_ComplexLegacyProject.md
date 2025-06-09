@@ -175,19 +175,20 @@ Did the assistant’s answers make you want to explore the `JavaFileParser` clas
 Then ask your assistant:
 
 - `Where is the JavaFileParser class used?`  
-  - &#8594; If you're lucky (and the probabilities are in your favor), the assistant might point you to the following code snippet from the `FileReader` class:
 
-    ```java
-    private val fileSanitizers = mapOf(
-        ".java" to JavaFileParser(),
-        ".kt" to KotlinFileSanitizer(),
-        ".py" to PythonFileSanitizer(),
-        ".js" to JavascriptFileSanitizer(),
-        ".html" to HtmlFileSanitizer()
-    )
-    ```
+- &#8594; If you're lucky (and the probabilities are in your favor), the assistant might point you to the following code snippet from the `FileReader` class:
 
-  - &#8594; If you didn’t get this code snippet, try rephrasing your question:  
+```java
+private val fileSanitizers = mapOf(
+  ".java" to JavaFileParser(),
+  ".kt" to KotlinFileSanitizer(),
+  ".py" to PythonFileSanitizer(),
+  ".js" to JavascriptFileSanitizer(),
+  ".html" to HtmlFileSanitizer()
+  )
+```
+
+- &#8594; If you didn’t get this code snippet, try rephrasing your question:  
   `Can you show me how JavaFileParser is used?`
 
 If the assistant still doesn’t return the expected snippet (**remember, generative AI responses are probabilistic, so even well-phrased prompts don’t guarantee results**), go directly to the `FileReader` class and check whether the code is actually there.
@@ -351,15 +352,15 @@ You should see an increase in coverage—at the method, line, and branch levels�
 It’s likely that some tests will fail because they contain hardcoded file paths pointing to nonexistent files.  
 This will especially happen if the assistant generated test code similar to the following:
 
-   ```java
-   @Test
-   fun processFile_withEmptyJavaFile_returnsEmptyList() {
-       val parser = JavaFileParser()
-       val path = "src/test/resources/EmptyJavaFile.java"
-       val words = parser.processFile(path)
-       assertTrue(words.isEmpty())
-   }
-   ```
+```java
+@Test
+fun processFile_withEmptyJavaFile_returnsEmptyList() {
+  val parser = JavaFileParser()
+  val path = "src/test/resources/EmptyJavaFile.java"
+  val words = parser.processFile(path)
+  assertTrue(words.isEmpty())
+}
+```
 
    ***To avoid this type of error, one solution is to use temporary files with the `@TempDir` annotation.***
 
