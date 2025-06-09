@@ -8,10 +8,10 @@
 
 In this tutorial, you will learn how to:
 
-* **[1. Installation the GitHub Copilot AI coding assistant][Installation]**
-* **[2. Getting Started with the AI Coding Assistant][part_2]**
-* **[3. Assisting with the Implementation of New Business Rules in a Simple Legacy Project][part_3]**
-* **[4. Assisting with Working on Complex Legacy Project][part_4]**
+* **[Installation the GitHub Copilot AI coding assistant][Installation]**
+* **[1. Getting Started with the AI Coding Assistant][part_1]**
+* **[2. Assisting with the Implementation of New Business Rules in a Simple Legacy Project][part_2]**
+* **[3. Assisting with Working on Complex Legacy Project][part_3]**
 
 You will also find some [Useful Resources][Resources] that were consulted while writing this tutorial.
 
@@ -33,10 +33,10 @@ This document is licensed under CC BY-NC-SA:
 
 Learn more about [Creative Commons licenses](https://creativecommons.org/licenses)
 
-[Installation]: 1_Installation.md
-[part_2]: 2_GettingStarted.md
-[part_3]: 3_SimpleLegacyProject.md
-[part_4]: 4_ComplexLegacyProject.md
+[Installation]: Installation.md
+[part_1]: 1_GettingStarted.md
+[part_2]: 2_SimpleLegacyProject.md
+[part_3]: 3_ComplexLegacyProject.md
 [resources]: Resources.md
 
 <!-- https://www.jdbonjour.ch/cours/markdown-pandoc/ >

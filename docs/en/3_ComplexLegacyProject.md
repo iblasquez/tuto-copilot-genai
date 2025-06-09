@@ -1,4 +1,4 @@
-# 4. Assisting with Working on Complex Legacy Projects
+# 3. Assisting with Working on Complex Legacy Projects
 
 In a recent article titled [Legacy Modernization meets GenAI](https://martinfowler.com/articles/legacy-modernization-gen-ai.html), Martin Fowler wrote:
 
@@ -20,9 +20,9 @@ For now, simply open the project in your IDE.
 To get an overview of the code, there is no need to compile or build the project yet (we’ll get to that later).  
 Just have the code in front of you with the Copilot chat open—and let yourself be guided.
 
-## 4.1 Helping to Gain an Overview of the Project
+## 3.1 Helping to Gain an Overview of the Project
 
-### 4.1.a First High-Level Overview of the Project
+### 3.1.a High-Level Overview of the Project
 
 After opening the AI coding assistant chat in your IDE, you can interact with it, using more or less detail as shown earlier.
 
@@ -51,7 +51,7 @@ The answer will likely be more detailed than before, because as the conversation
   `What do you think is the domain context of this application?`  
   `What is this application used for?`
 
-### 4.1.b Keeping a High-Level Overview in a README File
+### 3.1.b Keeping a High-Level Overview in a README File
 
 In a collaborative project, the `README` file is essential for providing an overview and helping contributors get familiar with the project quickly.  
 The project you just cloned doesn’t have one? No problem—ask the assistant to generate a `README` based on what it has *seen* in the project.  
@@ -60,7 +60,7 @@ For example, you can use the following prompt:
 
 > **Note:** *At this stage, you're just exploring the project with your AI coding assistant, not trying to modify the code. If you later decide to include a `README` in the project, you can reuse the same prompt. Thanks to the many interactions you’ll have had by then, the generated `README` will be even more detailed and relevant.*
 
-### 4.1.c Deepening Your Understanding of the Project
+### 3.1.c Deepening Your Understanding of the Project
 
 To gain a deeper understanding, continue to ask and challenge the assistant about the system’s entry points and some of the domain classes in the application.
 
@@ -238,7 +238,7 @@ If you start a new session, the assistant will lose the knowledge it gained abou
 As of now, there is no long-term memory or **RAG** (Retrieval-Augmented Generation) in coding assistants.
 Still, improvements are likely on the way, as shown by the recent introduction of memory features between conversations in some versions of ChatGPT.
 
-## 4.2: Assistance in Setting Up a Functional Development Environment
+## 3.2: Assistance in Setting Up a Functional Development Environment
 
 So far, the AI coding assistant has only helped you understand how the existing code works—without checking whether the code actually compiles and runs.  
 If you want to go further (refactor the code, add new features, etc.), you'll need to compile and run the project in your preferred IDE.
@@ -262,22 +262,21 @@ If needed, feel free to ask for help using questions like:
 - `How do I run the cli main from the IDE with the absolute path to WordAnalyticsService.java as an argument?`  
 - `[...]` Continue the conversation as needed, based on your experience, until you get results similar to the output shown in the screenshots above.
 
-## 4.3 Improving the Code Quality of a Legacy System
+---
 
-In this final part, we’ll focus on the `JavaFileParser` class.  
-Start by **opening the `JavaFileParser` class**.
+***Then, we’ll focus on the `JavaFileParser` class. Start by opening the `JavaFileParser` class***.
 
-### 4.3.a Understanding the Design Choices and Existing Code
+---
+
+## 3.3 Understanding the Design Choices and Existing Code
 
 Before doing any refactoring to improve the quality of this class, it’s essential to clearly understand its behavior and get a *good* overview of the existing code.
-
-#### Refreshing Your Memory About the Class Behavior
 
 You’ve already had several interactions with this class, so a simple question to your coding assistant should help you refresh your memory:  
 
 - `Why does the JavaFileParser class exist?`  
 
-#### Exploring the Concept of AST (Abstract Syntax Tree)
+### 3.3.a Exploring the Concept of AST (Abstract Syntax Tree)
 
 In the assistant’s response, you probably saw the term **AST** appear.  
 You can explore this concept further by asking questions such as:
@@ -286,20 +285,20 @@ You can explore this concept further by asking questions such as:
 - `Can you give me specific examples of ASTs?`
 - `[...]`
   
-#### Understanding the AST Implementation in `JavaFileParser`
+### 3.3.b Understanding the AST Implementation in `JavaFileParser`
 
 To go further, you can ask:
 
 - `Where and how is the AST implemented in the JavaFileParser class?`
 
-#### Exploring the `processFile` Method
+### 3.3.c Exploring the `processFile` Method
 
 While reviewing the assistant’s responses, you probably noticed domain-related terms and code snippets linked to the `processFile` method.
 You decide to learn more about its implementation:
 
 - `Can you explain the processFile method code?`
 
-#### The Visitor Pattern and  `VoidVisitorPattern`
+### 3.3.d The Visitor Pattern and  `VoidVisitorPattern`
 
 The assistant’s response likely mentioned **Visitor** and `VoidVisitorPattern`.  
 You may already be familiar with the GoF (Gang of Four) Visitor pattern, and in the `processFile` code, you may have noticed methods like `accept` and `visit`, which are typical of that pattern.
@@ -314,9 +313,9 @@ You’ll be able to see all its visit methods, and observe that it implements `V
 
 After this discussion, the implementation of the `processFile` method should appear clearer and more understandable.
 
-### 4.3.b Helping to Add New Unit Tests
+## 3.4 Helping to Add New Unit Tests
 
-#### 1. Improving Code Coverage for the `WordAnalyticsService` Class
+### 3.4.a Improving Code Coverage for the `WordAnalyticsService` Class
 
 - Expand the test branch (`src/test/...`) in the `common` module to check whether there is already a `WordAnalyticsServiceTest` class.
 
@@ -337,7 +336,7 @@ Ask your assistant to help you cover this method—for example, by using the com
 - Run the tests again (and if one fails due to a `null` value, simply remove it), then rerun the code coverage analysis.  
 You should see an increase in coverage—at the method, line, and branch levels—thanks to the newly added tests.
 
-#### 2. Testing the `JavaFileParser` Class
+### 3.4.b Testing the `JavaFileParser` Class
 
 - Go back to the test branch (`src/test/...`) of the `common` module and note that the `JavaFileParser` class does not yet have an associated test class.
 
@@ -409,7 +408,7 @@ Maybe you were lucky enough to get working unit tests on the first try—or mayb
 Your assistant can help you learn more by asking:  
 `Can you tell me more about @TempDir?`
 
-### 4.3.c Supporting Refactoring
+### 3.4.c Supporting Refactoring
 
 Now that the behavior is covered by tests, you can safely consider a bit of refactoring.  
 To do this, ask the assistant to suggest improvements using the following commands:  
@@ -426,7 +425,7 @@ To do this, ask the assistant to suggest improvements using the following comman
 
 In both cases, the assistant will suggest changes—but it’s up to you to decide whether to apply them to your code (that’s where your **judgment** comes in).
 
-### 4.3.d Supporting Code Review
+## 3.5 Supporting Code Review
 
 Even without a full test harness in place, you can ask your coding assistant to suggest refactorings for code snippets—regardless of their size.
 
@@ -458,7 +457,7 @@ When you start asking code quality–related questions, your assistant may also 
 
 Even if these questions aren’t automatically suggested by the assistant at the exact moment you need them, it’s always useful to keep them in mind **as a prompt toolbox to improve your code quality anytime**.
 
-## 4.4 Suggesting Improvements on Sensitive Topics
+## 3.6 Suggesting Improvements on Sensitive Topics
 
 To wrap up this tutorial, it might be interesting to challenge your coding assistant with sensitive topics—especially those outside your area of expertise.
 

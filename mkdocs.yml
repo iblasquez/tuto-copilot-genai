@@ -13,10 +13,10 @@ theme:
 nav:
   - english version:
       - Home: en/index.md
-      - 1. Installation: en/1_Installation.md
-      - 2. Getting Started with the AI Coding Assistant : en/2_GettingStarted.md
-      - 3. Assisting with Simple Legacy Project : en/3_SimpleLegacyProject.md
-      - 4. Assisting with Complex Legacy Project : en/4_ComplexLegacyProject.md
+      - Installation: en/Installation.md
+      - 1. Getting Started with the AI Coding Assistant : en/1_GettingStarted.md
+      - 2. Assisting with Simple Legacy Project : en/2_SimpleLegacyProject.md
+      - 3. Assisting with Complex Legacy Project : en/3_ComplexLegacyProject.md
       - Useful Resources : en/Resources.md
   - version française:
       - Accueil: fr/index.md

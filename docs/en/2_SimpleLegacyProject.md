@@ -1,8 +1,6 @@
-# 3. Assisting with the Implementation of New Business Rules in a Simple Legacy Project
+# 2. Assisting with the Implementation of New Business Rules in a Simple Legacy Project
 
 Start by cloning the **bookai** project from the GitHub repository at <https://github.com/iblasquez/bookai>, then open it in your preferred IDE.
-
-## 3.1 Getting an Overview of the Project
 
 First, make sure the project compiles. Then take a quick look at the code to get a general idea.
 
@@ -11,7 +9,7 @@ So far, no tests have been written in `BookTest`.
 
 For such a simple project, you don't need an AI coding assistant to understand the overall structure.
 
-## 3.2 Generating Unit Tests for a Simple Class
+## 2.1 Generating Unit Tests for a Simple Class
 
 To start on solid ground (and review what you learned earlier), begin by adding unit tests to this project.
 
@@ -47,7 +45,7 @@ Then, add the generated code to `LibraryMemberTest`, run the tests, and check th
 Here, the purpose is simply to show how to quickly add unit tests.
 For now, we won’t write tests for the `Library` class.
 
-## 3.3 Supporting the *Proper* Implementation of a New Domain Rule
+## 2.2 Implementing a New Business Rule: ISBN Validation
 
 ### Understanding and Implementing the Rule for Validating an ISBN (`ISBNValidator` Class)
 
@@ -145,43 +143,7 @@ AI coding assistants can help you generate code quickly, but **careful review is
 Today, AI coding assistant models tend to replicate the technical debt present in the data they were trained on.
 However, given the fast pace of progress in large language models (LLMs), we can hope that they will eventually benefit from higher-quality training data and new learning techniques, which could gradually improve the quality of the code they generate.
 
-## 3.4 Assisting with Regular Expression Writing (Pattern Matching)
-
-Regular expressions are patterns used to identify specific combinations of characters in strings.  
-**Writing a regular expression is often seen as a tedious task by developers**, and an AI coding assistant can help you generate them quickly.
-
-- Open the `LibraryMember` class and ask your assistant in the chat:  
-`Can you create a regular expression to validate an email address?`
-
-The assistant will likely suggest a regex starting with something like `^[a-zA-Z0-9._%+-]+`, where:  
-&#8594; The `^` symbol marks the beginning of the line: the email address must start here.
-&#8594; The characters in brackets `[…]+` specify that the email must contain one or more (`+`) of the listed characters: lowercase letters (`a-z`), uppercase letters (`A-Z`), digits (`0-9`), or certain special characters such as dot (`.`), underscore (`_`), percent (`%`), plus (`+`), or hyphen (`-`).
-&#8594; The part that follows the `@` symbol—required in every email address—can vary and may be more or less strict depending on the assistant’s (probabilistic) output. If you have specific requirements for this part, feel free to share them with the assistant to refine the pattern.  
-
-**Keep in mind that while the assistant can save you time on repetitive and tedious tasks, it is essential to check and adjust the generated code to ensure it meets your needs.**
-
-- If you want to **add more constraints to domain names**, you can ask the assistant:  
-`What are the common rules for domain names in email addresses?`
-
-- Once you're familiar with those rules, ask your assistant to rewrite the `isValidEmail` method to take these constraints into account.
-
-## 3.5 Exploring for the Joy of Discovering New Tools
-
-- Email validation is not a feature specific to your application.
-It’s clear that many developers have implemented this rule before you.
-Out of curiosity, you could ask your assistant:  
-`Can you write this code differently?`  
-`Are there other ways to validate an email besides pattern matching?`  
-
-- Your assistant will likely encourage you to explore further by suggesting questions like:  
-`What are other ways to validate an email address in Java?`  
-`What third-party libraries are available to validate email addresses in Java?`  
-`[…]`  
-
-This way, you’ll discover that there are several approaches to email validation besides pattern matching.
-Why reinvent the wheel? After this enriching conversation, you can choose the solution that best fits your needs.
-
-## 3.6 Adding the `searchBookByTitle` Feature
+## 2.3 Adding the `searchBookByTitle` Feature
 
 - Go to the end of the `Library` class and start typing:  
   `public List<Book> search`
@@ -223,7 +185,7 @@ However, it’s also worth noting that an assistant’s **hallucination** can so
 `Refactor this to use streams.`  
 Then replace the existing code with the refactored version and rerun the tests to confirm that the behavior is unchanged.
 
-## 3.7 Suggesting More Complex Code (with Streams)
+### Suggesting More Complex Code (with Streams)
 
 - Now go to the end of the `Library` class and type a comment in your code describing a more complex feature, such as:  
 `Implement a method to sort books by year, then by author name`
@@ -234,13 +196,53 @@ Then replace the existing code with the refactored version and rerun the tests t
 The assistant will likely suggest an implementation that uses streams and lambda expressions (`->`).
 If not, ask it to refactor the code using streams, just like before.
 
-## 3.8 Exploring Other Use Cases
+## 2.4 Exploring Other Use Cases
+
+### 2.4.1 Assisting with Regular Expression Writing (Pattern Matching)
+
+Regular expressions are patterns used to identify specific combinations of characters in strings.  
+**Writing a regular expression is often seen as a tedious task by developers**, and an AI coding assistant can help you generate them quickly.
+
+- Open the `LibraryMember` class and ask your assistant in the chat:  
+`Can you create a regular expression to validate an email address?`
+
+The assistant will likely suggest a regex starting with something like `^[a-zA-Z0-9._%+-]+`, where:  
+&#8594; The `^` symbol marks the beginning of the line: the email address must start here.
+&#8594; The characters in brackets `[…]+` specify that the email must contain one or more (`+`) of the listed characters: lowercase letters (`a-z`), uppercase letters (`A-Z`), digits (`0-9`), or certain special characters such as dot (`.`), underscore (`_`), percent (`%`), plus (`+`), or hyphen (`-`).
+&#8594; The part that follows the `@` symbol—required in every email address—can vary and may be more or less strict depending on the assistant’s (probabilistic) output. If you have specific requirements for this part, feel free to share them with the assistant to refine the pattern.  
+
+**Keep in mind that while the assistant can save you time on repetitive and tedious tasks, it is essential to check and adjust the generated code to ensure it meets your needs.**
+
+- If you want to **add more constraints to domain names**, you can ask the assistant:  
+`What are the common rules for domain names in email addresses?`
+
+- Once you're familiar with those rules, ask your assistant to rewrite the `isValidEmail` method to take these constraints into account.
+
+### 2.4.2 Exploring for the Joy of Discovering New Tools
+
+- Email validation is not a feature specific to your application.
+It’s clear that many developers have implemented this rule before you.
+Out of curiosity, you could ask your assistant:  
+`Can you write this code differently?`  
+`Are there other ways to validate an email besides pattern matching?`  
+
+- Your assistant will likely encourage you to explore further by suggesting questions like:  
+`What are other ways to validate an email address in Java?`  
+`What third-party libraries are available to validate email addresses in Java?`  
+`[…]`  
+
+This way, you’ll discover that there are several approaches to email validation besides pattern matching.
+Why reinvent the wheel? After this enriching conversation, you can choose the solution that best fits your needs.
+
+### 2.4.3 Exploring Support for Data Format Conversion
 
 The last small use case you’ll explore in this project is data format conversion.
 Ask your assistant in the chat:  
 `Add a method to export book data as JSON.`
 
 The assistant should then guide you on where and how to implement this method.
+
+### 2.4.4 Going Further
 
 Depending on your context and needs, you’ll discover many other use cases as you move through the development process.
 Now it’s your turn to explore!

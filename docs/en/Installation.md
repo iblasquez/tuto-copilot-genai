@@ -1,4 +1,4 @@
-# 1. Installing the GitHub Copilot AI Coding Assistant (in Your Favorite IDE)
+# Installing the GitHub Copilot AI Coding Assistant (in Your Favorite IDE)
 
 To use **GitHub Copilot**, often referred to simply as **Copilot**, you need a **GitHub account**.
 **GitHub Copilot** is a paid service, but students and teachers can use it for free through [GitHub Education](https://github.com/education).
@@ -27,8 +27,8 @@ The official **GitHub Copilot documentation** is available on [GitHub Docs](http
 
 ---
 
-***Now go to the next section: [2. Getting Started with the AI Coding Assistant][part_2], or return to the [Home page](index.md)***
+***Now go to the next section: [1. Getting Started with the AI Coding Assistant][part_1], or return to the [Home page](index.md)***
 
 ---
 
-[part_2]: 2_GettingStarted.md
+[part_1]: 1_GettingStarted.md
