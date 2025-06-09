@@ -2,7 +2,13 @@ site_name: Copilot & Co Tutorial
 site_url: https://iblasquez.github.io/tuto-copilot-genai/
 
 theme:
-  name: readthedocs
+  name: material
+  palette:
+    scheme : slate 
+    primary: pink
+    accent: cyan
+  features:
+  - navigation.footer
 
 nav:
   - version française:
@@ -27,3 +33,9 @@ markdown_extensions:
   - footnotes
   - toc:
       permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/iblasquez
+      name: github.com
