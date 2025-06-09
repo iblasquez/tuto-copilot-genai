@@ -1,4 +1,4 @@
-# 2. Getting Started with an AI Coding Assistant: First Steps with a Simple Example
+# 1. Getting Started with an AI Coding Assistant: First Steps with a Simple Example
 
 A simple example is the best way to start using a new tool.  
 In your favorite IDE, create a Java project named **maths**, and add a `Calculator` class with the following implementation:
@@ -26,7 +26,7 @@ public class Calculator {
 }
 ```
 
-## 2.1 Generating Code Suggestions from Comments (Describing Intended Behavior)
+## 1.1 Generating Code Suggestions from Comments (Describing Intended Behavior)
 
 - Place your cursor at the end of the class, just before the closing brace `}`.
 - **Write a comment** that expresses the **intended behavior** you want to implement, for example:  
@@ -54,7 +54,7 @@ Remember, it's a support tool—you should always review, understand, and, if ne
 
 - If the suggestion doesn’t fit your needs, just press Enter and write your own code.
 
-## 2.2 Generating Unit Test Code
+## 1.2 Generating Unit Test Code
 
 - Use your IDE to create a `CalculatorTest` class in the appropriate location of your project. This class will contain the unit tests for the `Calculator` class.
 
@@ -69,7 +69,7 @@ Remember, it's a support tool—you should always review, understand, and, if ne
   - The assistant will likely start by suggesting the `@Test` annotation. Confirm it with **Tab**, then press **Enter** to let it continue generating the method.
   - The assistant will then suggest an implementation of the test method, which you can either **accept** by pressing **Tab**, or **dismiss** by pressing **Enter** allowing you to take over and continue manually in your IDE.
 
-## 2.3 Explaining How Code Works (`/explain`)
+## 1.3 Explaining How Code Works (`/explain`)
 
 - In the `Calculator` class, select **the entire `divide` method**.
 
@@ -88,7 +88,7 @@ To save time, **Copilot** offers a shortcut for this frequent question: the **`/
 Make sure the `divide` method is still selected, then type `/explain` in the chat and press **Enter**.
 As before, Copilot will return a detailed explanation of what the code does.
 
-## 2.4 A Few Words About Prompts
+## 1.4 A Few Words About Prompts
 
 It’s now time to introduce the concept of a prompt.
 In the field of artificial intelligence (AI), a **prompt** is an instruction or a set of input data that you give to an AI system to generate a response.
@@ -97,7 +97,7 @@ In other words, it’s how you interact or communicate with your AI coding assis
 Prompts can be short phrases, questions, or keywords.
 The relevance and quality of the assistant’s responses (or any AI chatbot) depend directly on the quality of your prompts, that is, how clear and precise your instructions are.
 
-## 2.5 Copilot Slash Commands: Prompting Support for Common Developer Tasks
+## 1.5 Copilot Slash Commands: Prompting Support for Common Developer Tasks
 
 &#8594; Copilot offers shortcuts known as **slash commands**, which help you perform common and repetitive software development tasks.
 By typing **a forward slash (`/`)** in the chat, Copilot suggests a list of available commands to interact with it more efficiently.
@@ -125,7 +125,7 @@ The file will then be explicitly linked to the chat.
 
 **If you're using an AI coding assistant other than Copilot, your tool likely offers an equivalent to Copilot’s slash commands.** If it doesn’t, whenever a slash command is used in this tutorial, **simply write out the full sentence described in the table above** which explains the assistant’s task in detail. Or try teaching your favorite AI assistant that shortcut yourself &#128522;
 
-## 2.6 Making Code Easier to Fix, Refactor, and Improve
+## 1.6 Making Code Easier to Fix, Refactor, and Improve
 
 ### Fixing Issues: `/fix`
 
@@ -187,7 +187,7 @@ But if you’re looking for a more detailed answer or a suggestion focused on a 
 
 *During the previous prompt about code quality, your assistant may have suggested that **"Using Javadoc comments to document public methods"** is, in its view, a **quality criterion**.*
 
-## 2.7 Easily Generate Documentation: /doc
+## 1.7 Easily Generate Documentation: /doc
 
 **Javadoc comments** are different from **regular inline comments** in code.
 To better understand (and be convinced of) this difference, you can ask your AI coding assistant the following question:
@@ -213,7 +213,7 @@ This ensures that the assistant didn’t change the behavior of your code—just
 
 *As you interact more with the assistant, you'll probably notice that **it often suggests follow-up questions related to your request. These suggestions help you refine your prompts and explore the topic in more depth.***
 
-## 2.8 Exploring Topics Related to Software Development
+## 1.8 Exploring Topics Related to Software Development
 
 After using the `/doc` command, your AI coding assistant generated the documented code as expected.
 If you take a closer look at the chat, you’ll probably notice that **it also suggested a follow-up question to help you go further either in your actions or your understanding of documentation.**  
@@ -233,7 +233,7 @@ If not, just type the question directly in the chat or choose the one you see.
 
 For quick research, these conversations let you explore the assistant’s knowledge directly inside your IDE without needing to search external resources.
 
-## 2.9 But Copilot Is Still Just a Software Development Assistant
+## 1.9 But Copilot Is Still Just a Software Development Assistant
 
 Like all language models, AI coding assistants (such as Copilot) are trained on specific datasets.
 It’s important to remember that the assistant you’re using in this tutorial, integrated into your IDE, is **designed specifically for software development** and has been trained with knowledge related to that field.
@@ -251,7 +251,7 @@ feel free to ask!***
 
 This clearly shows the limits of an AI coding assistant compared to a general-purpose model.
 
-## 2.10 Step-by-Step Guidance for Using New Tools
+## 1.10 Step-by-Step Guidance for Using New Tools
 
 You’ve just asked your AI coding assistant to generate Javadoc comments, but do you know how to **generate the Javadoc for your project**, and where or how to view it?
 
@@ -277,7 +277,7 @@ Can it do it for you? Try asking:
 
 What happens? What kind of response do you get from your assistant?
 
-## 2.11 Improving Copilot's Responses by Targeting Prompt Context with References (Conversation Agents)
+## 1.11 Improving Copilot's Responses by Targeting Prompt Context with References (Conversation Agents)
 
 Earlier, we saw that Copilot offers **slash commands**, shortcuts that let you **quickly trigger common tasks or actions**.
 
