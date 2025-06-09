@@ -4,9 +4,9 @@ site_url: https://iblasquez.github.io/tuto-copilot-genai/
 theme:
   name: material
   palette:
-    scheme : slate 
-    primary: pink
-    accent: cyan
+    scheme : scheme 
+    primary: indigo
+    accent: indigo
   features:
   - navigation.footer
 
@@ -37,5 +37,5 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/iblasquez
-      name: github.com
+      link: https://github.com/iblasquez/tuto-copilot-genai
+      name: github.com/iblasquez
