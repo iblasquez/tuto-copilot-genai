@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://iblasquez.github.io/tuto-copilot-genai/en/3_SimpleLegacyProject/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Assisting with Simple Legacy Project - Copilot & Co Tutorial</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Assisting with Simple Legacy Project";
+        var mkdocs_page_input_path = "en/3_SimpleLegacyProject.md";
+        var mkdocs_page_url = "/tuto-copilot-genai/en/3_SimpleLegacyProject/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Copilot & Co Tutorial
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">version française</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../fr/">Accueil</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../fr/1_Installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../fr/2_PriseEnMainAssistant/">Prise en main de l'assistant de code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../fr/3_ProjetExistantSimple/">Mise en place de nouvelles règles métiers dans un projet simple</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../fr/4_ProjetExistantComplexe/">Reprise d'un projet complexe existant (legacy code)</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../fr/Liens/">Quelques liens utiles</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">english version</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Home</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../1_Installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../2_GettingStarted/">Getting Started with the AI Coding Assistant</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Assisting with Simple Legacy Project</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#31-getting-an-overview-of-the-project">3.1 Getting an Overview of the Project</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#32-generating-unit-tests-for-a-simple-class">3.2 Generating Unit Tests for a Simple Class</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#covering-the-book-class">Covering the Book Class</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#covering-the-librarymember-class">Covering the LibraryMember Class</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#33-supporting-the-proper-implementation-of-a-new-domain-rule">3.3 Supporting the Proper Implementation of a New Domain Rule</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-and-implementing-the-rule-for-validating-an-isbn-isbnvalidator-class">Understanding and Implementing the Rule for Validating an ISBN (ISBNValidator Class)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#testing-the-domain-rule-isbnvalidatortest-class">Testing the Domain Rule (ISBNValidatorTest Class)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#improving-the-quality-of-the-domain-rule-code">Improving the Quality of the Domain Rule Code</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#34-assisting-with-regular-expression-writing-pattern-matching">3.4 Assisting with Regular Expression Writing (Pattern Matching)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#35-exploring-for-the-joy-of-discovering-new-tools">3.5 Exploring for the Joy of Discovering New Tools</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#36-adding-the-searchbookbytitle-feature">3.6 Adding the searchBookByTitle Feature</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#37-suggesting-more-complex-code-with-streams">3.7 Suggesting More Complex Code (with Streams)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#38-exploring-other-use-cases">3.8 Exploring Other Use Cases</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Resources/">Useful Resources</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Copilot & Co Tutorial</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">english version</li>
+      <li class="breadcrumb-item active">Assisting with Simple Legacy Project</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3-assisting-with-the-implementation-of-new-business-rules-in-a-simple-legacy-project">3. Assisting with the Implementation of New Business Rules in a Simple Legacy Project<a class="headerlink" href="#3-assisting-with-the-implementation-of-new-business-rules-in-a-simple-legacy-project" title="Permanent link">&para;</a></h1>
+<p>Start by cloning the <strong>bookai</strong> project from the GitHub repository at <a href="https://github.com/iblasquez/bookai">https://github.com/iblasquez/bookai</a>, then open it in your preferred IDE.</p>
+<h2 id="31-getting-an-overview-of-the-project">3.1 Getting an Overview of the Project<a class="headerlink" href="#31-getting-an-overview-of-the-project" title="Permanent link">&para;</a></h2>
+<p>First, make sure the project compiles. Then take a quick look at the code to get a general idea.</p>
+<p>The project is still in its early stages and appears to be part of a library domain. It includes three main classes: <code>Book</code>, <code>LibraryMember</code>, and <code>Library</code>.
+So far, no tests have been written in <code>BookTest</code>.</p>
+<p>For such a simple project, you don't need an AI coding assistant to understand the overall structure.</p>
+<h2 id="32-generating-unit-tests-for-a-simple-class">3.2 Generating Unit Tests for a Simple Class<a class="headerlink" href="#32-generating-unit-tests-for-a-simple-class" title="Permanent link">&para;</a></h2>
+<p>To start on solid ground (and review what you learned earlier), begin by adding unit tests to this project.</p>
+<h3 id="covering-the-book-class">Covering the <code>Book</code> Class<a class="headerlink" href="#covering-the-book-class" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The <code>BookTest</code> class already exists. Open it, remove the placeholder test, and let your AI coding assistant suggest a set of tests that you can review and approve.</li>
+<li>Run the tests.</li>
+<li>Check the code coverage. Since <code>Book</code> is a simple POJO, two or three tests suggested by the assistant should be enough to reach 100% coverage.</li>
+</ul>
+<p><em>Note: If you don't know what a POJO is, you can ask your AI coding assistant to explain it.</em></p>
+<h3 id="covering-the-librarymember-class">Covering the <code>LibraryMember</code> Class<a class="headerlink" href="#covering-the-librarymember-class" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Open the <code>LibraryMember</code> class. In the AI coding assistant chat, use the slash command <code>/tests</code> (or type <code>Generate unit tests</code>) to generate test code.</p>
+</li>
+<li>
+<p>Use your IDE to create the <code>LibraryMemberTest</code> class in the right place, and insert the generated code.</p>
+</li>
+<li>
+<p>Make sure the tests compile <strong>without changing the production code</strong>.
+If needed, adjust <strong>the test code</strong> to make it work. For example, you may have to complete the <code>Book</code> constructor (with or without help from the assistant).</p>
+</li>
+<li>
+<p>If the assistant generates a test method like <code>borrowBookTwice</code>, you will need to decide whether to keep it.
+The logic for borrowing a book that is already borrowed is not yet implemented. You can choose between:</p>
+</li>
+<li>Deleting the test, if this behavior is not important at this stage.</li>
+<li>
+<p>Keeping the test, if you think it should be handled now. In that case, you will have to update the production code so the test passes (with or without help from the assistant).</p>
+</li>
+<li>
+<p>Run the tests and check the code coverage.</p>
+</li>
+<li>Review the <code>LibraryMember</code> class.</li>
+</ul>
+<p>If some parts of <code>LibraryMember</code> are not covered by tests (and you want them to be), select those parts and use the <code>/tests</code> command to generate new tests.
+Then, add the generated code to <code>LibraryMemberTest</code>, run the tests, and check the coverage again.</p>
+<blockquote>
+<p><strong>Reminder:</strong> In a project, the goal is not always to reach 100% test coverage.</p>
+</blockquote>
+<p>Here, the purpose is simply to show how to quickly add unit tests.
+For now, we won’t write tests for the <code>Library</code> class.</p>
+<h2 id="33-supporting-the-proper-implementation-of-a-new-domain-rule">3.3 Supporting the <em>Proper</em> Implementation of a New Domain Rule<a class="headerlink" href="#33-supporting-the-proper-implementation-of-a-new-domain-rule" title="Permanent link">&para;</a></h2>
+<h3 id="understanding-and-implementing-the-rule-for-validating-an-isbn-isbnvalidator-class">Understanding and Implementing the Rule for Validating an ISBN (<code>ISBNValidator</code> Class)<a class="headerlink" href="#understanding-and-implementing-the-rule-for-validating-an-isbn-isbnvalidator-class" title="Permanent link">&para;</a></h3>
+<p>Go back to the <code>Book</code> class and look at its attributes.
+You’ll see that <code>isbn</code> is one of them.</p>
+<ul>
+<li>You probably have a rough idea of what an <strong>ISBN</strong> is (a sequence of digits).
+For more details, you can ask your AI coding assistant:<br />
+<code>Can you explain what an ISBN is?</code></li>
+</ul>
+<p>In this project, we are not interested in generating an ISBN, since it is assigned when a book is published.
+However, it is important to <strong>avoid human error when entering an ISBN</strong>. Ensuring <strong>data integrity</strong> (valid and accurate data) is key to maintaining software quality.</p>
+<p>An ISBN, like a credit card number or a health insurance number, likely includes a <strong>checksum</strong> to <strong>verify its validity</strong>.
+So it’s not just a random set of digits. It follows a <strong>domain rule</strong>.
+Let your AI coding assistant help you discover and implement that rule.</p>
+<ul>
+<li>Ask your assistant:<br />
+<code>Do you know if there’s a specific rule to check if an ISBN is valid?</code></li>
+</ul>
+<p>The assistant should give you an explanation, and probably a Java implementation.
+  - If not, ask directly:<br />
+<code>Can you give me a Java implementation of this domain rule?</code></p>
+<ul>
+<li>Then create a new class called <code>ISBNValidator</code> and paste the generated code into it, after quickly checking that the implementation matches the rule description.</li>
+</ul>
+<p><strong>Note: Since generative AI is probabilistic</strong>, your assistant may have responded in different ways to the questions above.
+You may end up with an implementation in <code>ISBNValidator</code> that <strong>validates only one type of ISBN</strong>, even though there are actually two: <strong>ISBN-10</strong> (used before 2007) and <strong>ISBN-13</strong>.</p>
+<ul>
+<li>
+<p>You can <strong>explore this domain rule further</strong> by continuing the discussion with your assistant:<br />
+<code>Is there another type of ISBN?</code> (ask this if the assistant only mentioned ISBN-13)<br />
+<code>What is the structure of an ISBN-10?</code><br />
+<code>What is the structure of an ISBN-13?</code><br />
+<code>What is the difference between ISBN-10 and ISBN-13?</code>  </p>
+</li>
+<li>
+<p><strong>If the assistant initially gave you only one method</strong> to check ISBN validity:</p>
+</li>
+<li>
+<p>now ask:<br />
+<code>Can you give me a Java implementation for ISBN-10?</code><br />
+  (Adapt the question depending on what the assistant has already provided.)</p>
+</li>
+<li>
+<p>Then add the new code to the <code>ISBNValidator</code> class, making sure it matches the domain rule.</p>
+</li>
+<li>
+<p><strong>Always review the assistant’s output before adding it to your code</strong>.<br />
+For example, make sure the ISBN-10 validation properly handles special cases, such as the use of the character "X".</p>
+</li>
+</ul>
+<h3 id="testing-the-domain-rule-isbnvalidatortest-class">Testing the Domain Rule (<code>ISBNValidatorTest</code> Class)<a class="headerlink" href="#testing-the-domain-rule-isbnvalidatortest-class" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Next, create a class called <code>ISBNValidatorTest</code>. With the help of your assistant, generate tests that cover both ISBN validation methods.<br />
+<strong>Pay attention to the quality of your test code</strong>, and make sure it follows <strong>best practices</strong>: avoid a single test with multiple assertions, and prefer well-named methods that follow the AAA pattern (Arrange, Act, Assert).<br />
+To do this, it’s better to select the code to test and use the <code>/test</code> command (or the prompt <code>Generate unit tests</code>s) rather than simply placing the cursor inside the <code>ISBNValidatorTest</code> class and letting the assistant generate tests automatically.</p>
+</li>
+<li>
+<p><strong>Run the tests. Do they all pass?</strong><br />
+If some fail, don’t change the production code right away. First, check whether the values used in the tests are correct. They may make the test pass, but are they really valid ISBNs?</p>
+</li>
+<li>
+<p>To <strong>ensure test quality</strong>, you must <strong>pay attention to the quality of your test data</strong>—which the AI coding assistant does not always guarantee.<br />
+To make sure you're <strong>using valid data</strong>, you will now <strong><em>review</em></strong> and revise the generated tests by replacing the test values with <strong>real ISBN examples</strong>:</p>
+</li>
+<li>
+<p>Use <code>9780321146533</code> when testing that a <strong>valid ISBN-13</strong> is accepted.
+    This ISBN-13 corresponds to the book <em>Test-Driven Development</em> by Kent Beck.</p>
+</li>
+<li>
+<p>Use <code>020161622X</code> when testing that a <strong>valid ISBN-10</strong> with an <strong>X as the check digit</strong> is accepted.
+    This ISBN-10 corresponds to the original 1999 edition of <em>The Pragmatic Programmer</em> by Andrew Hunt and David Thomas.</p>
+</li>
+<li>
+<p>Use <code>0321125215</code> when testing that a <strong>valid ISBN-10</strong> is accepted.
+    This ISBN-10 corresponds to <em>Domain-Driven Design</em> by Eric Evans.</p>
+</li>
+<li>
+<p><strong>To test an invalid or malformed ISBN</strong>, you can simply <strong>change the last digit</strong>, as it is the check digit.</p>
+</li>
+<li>
+<p>If the tests fail when using these valid examples, ask your assistant to regenerate the problematic code.</p>
+</li>
+</ul>
+<p><strong>Tip:</strong> <em>As with any refactoring, follow a careful and </em><em>step-by-step approach when revising your tests</em><em> with real values. Update one test value at a time, rerun the test, and then move to the next one.</em></p>
+<ul>
+<li>Once both ISBN validation rules are implemented and the test revision is complete, <strong>run all tests and check code coverage</strong> to ensure the <code>ISBNValidator</code> class is fully covered before applying a small production refactor.</li>
+</ul>
+<h3 id="improving-the-quality-of-the-domain-rule-code">Improving the Quality of the Domain Rule Code<a class="headerlink" href="#improving-the-quality-of-the-domain-rule-code" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Go back to the <code>ISBNValidator</code>r class.
+The assistant has generated working code that meets the requirement—but is the code high quality? Now ask the assistant:<br />
+<code>How can I improve the quality of the ISBNValidator class?</code></p>
+</li>
+<li>
+<p>Since generative AI always offers an answer, the assistant should suggest a cleaner version of the code.
+Check whether the improvements make sense to you. For example: Have magic numbers been removed? Were methods extracted? Are exceptions properly handled?</p>
+</li>
+<li>
+<p><strong>If you're happy with the code quality</strong>, replace the old code with the new one, then rerun the tests to make sure the ISBN validation rules still pass.</p>
+</li>
+<li>
+<p><strong>If the code quality doesn’t meet your expectations</strong>, be more specific by targeting one code smell at a time:<br />
+<code>Can you remove the magic numbers?</code></p>
+<ul>
+<li>If the result is acceptable, replace the previous code and rerun the tests.</li>
+<li>If you think it can still be improved, continue the conversation and refactor step by step. Fix one code smell at a time and rerun the tests after each change.<br />
+<code>Can you extract methods?</code><br />
+<code>[…]</code></li>
+</ul>
+</li>
+</ul>
+<p>Remember that your <strong>expertise and adherence to best practices are what ensure code quality.</strong>
+AI coding assistants can help you generate code quickly, but <strong>careful review is essential</strong> to avoid the buildup of technical debt, which can become costly over time—as shown in studies like <a href="https://www.gitclear.com/coding_on_copilot_data_shows_ais_downward_pressure_on_code_quality">gitclear</a> and <a href="https://resources.uplevelteam.com/gen-ai-for-coding">uplevelteam</a>.  </p>
+<p>Today, AI coding assistant models tend to replicate the technical debt present in the data they were trained on.
+However, given the fast pace of progress in large language models (LLMs), we can hope that they will eventually benefit from higher-quality training data and new learning techniques, which could gradually improve the quality of the code they generate.</p>
+<h2 id="34-assisting-with-regular-expression-writing-pattern-matching">3.4 Assisting with Regular Expression Writing (Pattern Matching)<a class="headerlink" href="#34-assisting-with-regular-expression-writing-pattern-matching" title="Permanent link">&para;</a></h2>
+<p>Regular expressions are patterns used to identify specific combinations of characters in strings.<br />
+<strong>Writing a regular expression is often seen as a tedious task by developers</strong>, and an AI coding assistant can help you generate them quickly.</p>
+<ul>
+<li>Open the <code>LibraryMember</code> class and ask your assistant in the chat:<br />
+<code>Can you create a regular expression to validate an email address?</code></li>
+</ul>
+<p>The assistant will likely suggest a regex starting with something like <code>^[a-zA-Z0-9._%+-]+</code>, where:<br />
+&#8594; The <code>^</code> symbol marks the beginning of the line: the email address must start here.
+&#8594; The characters in brackets <code>[…]+</code> specify that the email must contain one or more (<code>+</code>) of the listed characters: lowercase letters (<code>a-z</code>), uppercase letters (<code>A-Z</code>), digits (<code>0-9</code>), or certain special characters such as dot (<code>.</code>), underscore (<code>_</code>), percent (<code>%</code>), plus (<code>+</code>), or hyphen (<code>-</code>).
+&#8594; The part that follows the <code>@</code> symbol—required in every email address—can vary and may be more or less strict depending on the assistant’s (probabilistic) output. If you have specific requirements for this part, feel free to share them with the assistant to refine the pattern.  </p>
+<p><strong>Keep in mind that while the assistant can save you time on repetitive and tedious tasks, it is essential to check and adjust the generated code to ensure it meets your needs.</strong></p>
+<ul>
+<li>
+<p>If you want to <strong>add more constraints to domain names</strong>, you can ask the assistant:<br />
+<code>What are the common rules for domain names in email addresses?</code></p>
+</li>
+<li>
+<p>Once you're familiar with those rules, ask your assistant to rewrite the <code>isValidEmail</code> method to take these constraints into account.</p>
+</li>
+</ul>
+<h2 id="35-exploring-for-the-joy-of-discovering-new-tools">3.5 Exploring for the Joy of Discovering New Tools<a class="headerlink" href="#35-exploring-for-the-joy-of-discovering-new-tools" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Email validation is not a feature specific to your application.
+It’s clear that many developers have implemented this rule before you.
+Out of curiosity, you could ask your assistant:<br />
+<code>Can you write this code differently?</code><br />
+<code>Are there other ways to validate an email besides pattern matching?</code>  </p>
+</li>
+<li>
+<p>Your assistant will likely encourage you to explore further by suggesting questions like:<br />
+<code>What are other ways to validate an email address in Java?</code><br />
+<code>What third-party libraries are available to validate email addresses in Java?</code><br />
+<code>[…]</code>  </p>
+</li>
+</ul>
+<p>This way, you’ll discover that there are several approaches to email validation besides pattern matching.
+Why reinvent the wheel? After this enriching conversation, you can choose the solution that best fits your needs.</p>
+<h2 id="36-adding-the-searchbookbytitle-feature">3.6 Adding the <code>searchBookByTitle</code> Feature<a class="headerlink" href="#36-adding-the-searchbookbytitle-feature" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Go to the end of the <code>Library</code> class and start typing:<br />
+<code>public List&lt;Book&gt; search</code></p>
+</li>
+<li>
+<p>Let the AI coding assistant suggest a <strong>method signature</strong> and <strong>implementation</strong>.
+The goal is to keep typing until it suggests: <code>public List&lt;Book&gt; searchBookByTitle(String Title)</code><br />
+After a quick check to confirm that the implementation matches the intended domain behavior, <strong>accept it</strong>.</p>
+</li>
+<li>
+<p>Then use the assistant to <strong>generate tests</strong> for this method. Select the method code and use the <code>/tests</code> command.
+Make sure the code compiles by adding any missing <code>import</code> statements.</p>
+</li>
+</ul>
+<p>If a test fails, carefully review the <strong>quality of the data used in the test</strong>.
+In some cases, if you're unlucky—just like I was—you might encounter the following <strong>hallucination</strong>:<br />
+<img alt="hallucination in test data" src="../../assets/Hallucination_DonneesTest.png" title="hallucination in test data" /></p>
+<p>&#8594; At first glance, the test data may look correct, but the test fails on the <code>assertTrue</code> assertion.
+In fact, the AI coding assistant mistakenly used the <strong>author</strong> of a book as the input parameter for the <code>searchBookByTitle</code> method—instead of the <strong>title</strong>.<br />
+  This confusion is likely caused by <strong><em>primitive obsession</em></strong> in the <code>Book</code> constructor, which takes too many <code>String</code> parameters.
+  <strong>As a result, the assistant could not distinguish between the different <code>String</code> values and failed to identify the one representing the book title.</strong><br />
+  To make the test pass with the current data, you would need to pass <code>123</code> as the input instead of <code>Effective Java</code>.</p>
+<p>&#8594; However, using <code>123</code> as the input for the <code>searchBooksByTitle</code> method makes it clear that the test data is of poor quality.
+From a human perspective, in the domain context of this application, <code>Clean Code</code> or <code>Effective Java</code> are recognizable as real book titles.<br />
+    In the generated tests, the assistant incorrectly used those values as examples of author names, which is misleading and could cause confusion when reading or interpreting the tests later.
+    Interestingly, the ISBN used in the <em>Effective Java</em> example wasn’t the <em>correct one</em>—it was actually the real ISBN for <em>Design Patterns: Elements of Reusable Object-Oriented Software</em> by the Gang of Four. 😉</p>
+<p>&#8594; To improve readability (and therefore understanding) of the test, it's recommended to revise the test using <strong>realistic and meaningful domain values</strong>.<br />
+After this revision, the updated test might look like this :</p>
+<p><img alt="Fixing AI-Generated Test Data Errors" src="../../assets/Hallucination_DonneesTest_Correction.png" title="Fixing AI-Generated Test Data Errors" /></p>
+<p>This hallucination is a good reminder that <strong>you must carefully check the quality of test data generated by the assistant</strong>.
+Example values—just like the code—require your own review.<br />
+However, it’s also worth noting that an assistant’s <strong>hallucination</strong> can sometimes <strong>reveal design issues (code smells)</strong> that only your expertise can identify.</p>
+<ul>
+<li>
+<p>Once the tests are fixed, <strong>run them again</strong> to make sure they all pass.</p>
+</li>
+<li>
+<p>If the assistant generated code using a <code>for</code> loop but you prefer working with <strong>streams</strong>, select the entire <code>searchBookByTitle</code> method and ask the assistant:<br />
+<code>Refactor this to use streams.</code><br />
+Then replace the existing code with the refactored version and rerun the tests to confirm that the behavior is unchanged.</p>
+</li>
+</ul>
+<h2 id="37-suggesting-more-complex-code-with-streams">3.7 Suggesting More Complex Code (with Streams)<a class="headerlink" href="#37-suggesting-more-complex-code-with-streams" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Now go to the end of the <code>Library</code> class and type a comment in your code describing a more complex feature, such as:<br />
+<code>Implement a method to sort books by year, then by author name</code></p>
+</li>
+<li>
+<p>You can also try the following comment:
+<code>Implement a method to search for books by keyword in title or author</code></p>
+</li>
+</ul>
+<p>The assistant will likely suggest an implementation that uses streams and lambda expressions (<code>-&gt;</code>).
+If not, ask it to refactor the code using streams, just like before.</p>
+<h2 id="38-exploring-other-use-cases">3.8 Exploring Other Use Cases<a class="headerlink" href="#38-exploring-other-use-cases" title="Permanent link">&para;</a></h2>
+<p>The last small use case you’ll explore in this project is data format conversion.
+Ask your assistant in the chat:<br />
+<code>Add a method to export book data as JSON.</code></p>
+<p>The assistant should then guide you on where and how to implement this method.</p>
+<p>Depending on your context and needs, you’ll discover many other use cases as you move through the development process.
+Now it’s your turn to explore!</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../2_GettingStarted/" class="btn btn-neutral float-left" title="Getting Started with the AI Coding Assistant"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Resources/" class="btn btn-neutral float-right" title="Useful Resources">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../2_GettingStarted/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Resources/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
