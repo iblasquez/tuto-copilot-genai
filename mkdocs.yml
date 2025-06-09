@@ -11,19 +11,20 @@ theme:
   - navigation.footer
 
 nav:
-  - version française:
-      - Accueil: fr/index.md
-      - Installation: fr/1_Installation.md
-      - Prise en main de l'assistant de code : fr/2_PriseEnMainAssistant.md
-      - Mise en place de nouvelles règles métiers dans un projet simple : fr/3_ProjetExistantSimple.md
-      - Reprise d'un projet complexe existant (legacy code) : fr/4_ProjetExistantComplexe.md
-      - Quelques liens utiles : fr/Liens.md
   - english version:
       - Home: en/index.md
-      - Installation: en/1_Installation.md
-      - Getting Started with the AI Coding Assistant : en/2_GettingStarted.md
-      - Assisting with Simple Legacy Project : en/3_SimpleLegacyProject.md
+      - 1. Installation: en/1_Installation.md
+      - 2. Getting Started with the AI Coding Assistant : en/2_GettingStarted.md
+      - 3. Assisting with Simple Legacy Project : en/3_SimpleLegacyProject.md
+      - 4. Assisting with Complex Legacy Project : en/4_ComplexLegacyProject.md
       - Useful Resources : en/Resources.md
+  - version française:
+      - Accueil: fr/index.md
+      - 1. Installation: fr/1_Installation.md
+      - 2. Prise en main de l'assistant de code : fr/2_PriseEnMainAssistant.md
+      - 3. Mise en place de nouvelles règles métiers dans un projet simple : fr/3_ProjetExistantSimple.md
+      - 4. Reprise d'un projet complexe existant (legacy code) : fr/4_ProjetExistantComplexe.md
+      - Quelques liens utiles : fr/Liens.md
       
 
 
