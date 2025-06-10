@@ -314,7 +314,7 @@ You’ll be able to see all its visit methods, and observe that it implements `V
 
 After this discussion, the implementation of the `processFile` method should appear clearer and more understandable.
 
-## 3.4 Helping to Add New Unit Tests
+## 3.4 Generating Unit Tests
 
 ### 3.4.a Improving Code Coverage for the `WordAnalyticsService` Class
 
@@ -409,7 +409,7 @@ Maybe you were lucky enough to get working unit tests on the first try—or mayb
 Your assistant can help you learn more by asking:  
 `Can you tell me more about @TempDir?`
 
-### 3.4.c Supporting Refactoring
+### 3.4.c Assisting with Refactoring
 
 Now that the behavior is covered by tests, you can safely consider a bit of refactoring.  
 To do this, ask the assistant to suggest improvements using the following commands:  
@@ -426,7 +426,7 @@ To do this, ask the assistant to suggest improvements using the following comman
 
 In both cases, the assistant will suggest changes—but it’s up to you to decide whether to apply them to your code (that’s where your **judgment** comes in).
 
-## 3.5 Supporting Code Review
+## 3.5 Assisting with Code Review
 
 Even without a full test harness in place, you can ask your coding assistant to suggest refactorings for code snippets—regardless of their size.
 
