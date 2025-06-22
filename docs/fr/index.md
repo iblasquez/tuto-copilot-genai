@@ -20,6 +20,28 @@ Ce tutoriel est accompagné d'un formulaire. N'hésitez pas à compléter ce **f
 Pour commencer le tutoriel, c'est par [là][Installation] si vous avez besoin d'installer Github Copilot dans votre IDE préféré.  
 Sinon vous pouvez commencer directement [ici][contenu_partie_2] pour prendre en main et faire vos premiers pas avec votre assistant de code préféré.
 
+## A propos de l'approche pédagogique
+
+Ce tutoriel a été conçu pour aider les étudiants à développer à la fois leurs compétences techniques et leur esprit critique dans l'usage d'un assistant de code basé sur l'IA. Il permet d'explorer, de réfléchir et de progresser avec l'IA.
+
+Cette approche pédagogique s'appuie sur un processus d'apprentissage en trois étapes :
+
+1. **Expérimenter**  
+Explorez et testez l'assistant en suivant le tutoriel. Observez son comportement, explorez ses capacités… et identifiez ses limites.
+
+2. **Analyser**  *le code généré par l'IA*
+Prenez du recul grâce à un questionnaire réflexif. Réfléchissez à ce qui a bien fonctionné, à ce qui a posé problème, et pourquoi. Appuyez-vous sur votre propre expertise pour interpréter les suggestions de l'assistant.
+
+3. **Ajuster**  *les suggestions de l'IA*  
+Affinez vos prompts, corrigez les erreurs et prenez des décisions éclairées. C'est le moment d'exercer votre libre arbitre et de rester pleinement acteur ou actrice de votre apprentissage.
+
+Trois principes guident cette démarche : une **intégration progressive de l'outil**, une **validation critique du code produit**, et une **autonomie construite** à travers l'ajustement des suggestions, la réflexion sur les décisions prises, et l'apprentissage d'un usage raisonné et efficace des outils d'IA.
+
+## Papier de recherche
+
+Cette expérience pédagogique a fait l'objet d'un article présenté à la conférence [ITiCSE 2025](https://iticse.acm.org/2025) :  
+**[Developing Critical Thinking with AI Coding Assistants: An Educational Experience Focusing on Testing and Legacy Code](https://dl.acm.org/doi/10.1145/3724363.3729050)**.
+
 ## On en discute ?
 
 Pour les discussions, c'est par [là](https://github.com/iblasquez/tuto-copilot-genai/issues)  
