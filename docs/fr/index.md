@@ -6,6 +6,8 @@
 
 *Initialement conçu pour des étudiants bénéficiant de l'offre [GitHub Education][githubEducationLink], GitHub Copilot a été choisi pour illustrer ces cas d'usage. Cependant, il est tout à fait possible de suivre ce tutoriel en utilisant d'autres assistants de code, comme [Codeium][codeiumLink], [Cursor][cursorLink], [Supermaven](https://supermaven.com/) ou [Tabnine][tabnineLink],... qui offrent des services similaires. Le terme "**assistant de code**" sera donc privilégié autant que possible.*
 
+*Ce tutoriel a été rédigé à l'automne 2024 pour permettre aux étudiants de deuxième année de BUT Informatique d'expérimenter les assistants de code, à un moment où ces outils basés sur l'IA générative étaient en plein essor. Depuis, ces assistants ont connu de rapides évolutions et génèrent aujourd'hui moins d'hallucinations qu'à leurs débuts, c'est-à-dire au moment de la rédaction de ce tutoriel.*
+
 Dans ce tutoriel, nous verrez comment :
 
 * **[1. Installation de l'assistant de code Github Copilot][Installation]**
@@ -24,18 +26,22 @@ Sinon vous pouvez commencer directement [ici][contenu_partie_2] pour prendre en 
 
 Ce tutoriel a été conçu pour aider les étudiants à développer à la fois leurs compétences techniques et leur esprit critique dans l'usage d'un assistant de code basé sur l'IA. Il permet d'explorer, de réfléchir et de progresser avec l'IA.
 
-Cette approche pédagogique s'appuie sur un processus d'apprentissage en trois étapes :
+Pour développer leur esprit critique, cette approche pédagogique repose sur un processus d'apprentissage en trois étapes, itératif et incrémental :
 
 1. **Expérimenter**  
-Explorez et testez l'assistant en suivant le tutoriel. Observez son comportement, explorez ses capacités… et identifiez ses limites.
+*Explorer et tester l'assistant en suivant le tutoriel. Observer son comportement, explorer ses capacités et identifier ses limites.*  
+L'étudiant se confronte à l'outil en observant son comportement et en découvrant ses forces et ses faiblesses par la **pratique**.  
+Certains scénarios ont été spécialement conçus pour mettre en évidence ses limites, notamment en cherchant à provoquer des **hallucinations** (réponses incorrectes ou trompeuses générées par les modèles de langage au cœur de l'IA générative.). Compte tenu du caractère probabiliste de l'outil, ces hallucinations peuvent ne pas apparaître systématiquement c'est pourquoi elles sont explicitement expliquées dans le tutoriel.
 
-2. **Analyser**  *le code généré par l'IA*
-Prenez du recul grâce à un questionnaire réflexif. Réfléchissez à ce qui a bien fonctionné, à ce qui a posé problème, et pourquoi. Appuyez-vous sur votre propre expertise pour interpréter les suggestions de l'assistant.
+2. **Analyser** *la réponse générée par l'IA*  
+*Prendre du recul grâce à un questionnaire réflexif. Réfléchir à ce qui a bien fonctionné, à ce qui a posé problème, et pourquoi. S'appuyer sur sa propre expertise pour interpréter les suggestions de l'assistant.*  
+Vient ensuite un temps de ***réflexion guidée***, appuyée par un ***questionnaire***, des explications fournies dans le tutoriel et la mobilisation de sa propre ***expertise***. L'objectif ici est de passer d'une observation intuitive à une compréhension critique du fonctionnement (et des erreurs) de l'IA.
 
-3. **Ajuster**  *les suggestions de l'IA*  
-Affinez vos prompts, corrigez les erreurs et prenez des décisions éclairées. C'est le moment d'exercer votre libre arbitre et de rester pleinement acteur ou actrice de votre apprentissage.
+3. **Ajuster** *la suggestion de l'IA*  
+A*ffiner les prompts, corriger les erreurs et prendre des décisions éclairées.*  
+Enfin, les étudiants sont invités à corriger, adapter, affiner les suggestions de l'IA en exerçant leur propre ***libre-arbitre***. C'est ici que se joue l'***autonomisation*** face à l'outil en restant pleinement acteur ou actrice de leur apprentissage.
 
-Trois principes guident cette démarche : une **intégration progressive de l'outil**, une **validation critique du code produit**, et une **autonomie construite** à travers l'ajustement des suggestions, la réflexion sur les décisions prises, et l'apprentissage d'un usage raisonné et efficace des outils d'IA.
+Trois principes guident cette démarche : une **intégration progressive de l'outil**, une **validation critique du code produit**, et une **autonomie** construite à travers l'ajustement des suggestions, la réflexion sur les décisions prises, et l'apprentissage d'un usage raisonné et efficace des outils d'IA.
 
 ## Papier de recherche
 
