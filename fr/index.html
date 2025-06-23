@@ -743,6 +743,7 @@
 <h2 id="quid-des-assistants-de-code-base-sur-lia-generative-gen-ai">Quid des assistants de code basé sur l'IA générative (Gen AI) ?<a class="headerlink" href="#quid-des-assistants-de-code-base-sur-lia-generative-gen-ai" title="Permanent link">&para;</a></h2>
 <p><strong><em>Disclaimer</em></strong> : <em>Ce tutoriel a pour objectif de présenter quelques cas d'usage des assistants de code basés sur des modèles d'IA génératives. Il vise également à sensibiliser aux avantages de ces outils, tels que l'amélioration de la productivité et l'optimisation des pratiques de développement, tout en mettant en lumière leurs limites.</em></p>
 <p><em>Initialement conçu pour des étudiants bénéficiant de l'offre <a href="https://github.com/education">GitHub Education</a>, GitHub Copilot a été choisi pour illustrer ces cas d'usage. Cependant, il est tout à fait possible de suivre ce tutoriel en utilisant d'autres assistants de code, comme <a href="https://codeium.com">Codeium</a>, <a href="https://www.cursor.com">Cursor</a>, <a href="https://supermaven.com/">Supermaven</a> ou <a href="https://www.tabnine.com">Tabnine</a>,... qui offrent des services similaires. Le terme "</em><em>assistant de code</em><em>" sera donc privilégié autant que possible.</em></p>
+<p><em>Ce tutoriel a été rédigé à l'automne 2024 pour permettre aux étudiants de deuxième année de BUT Informatique d'expérimenter les assistants de code, à un moment où ces outils basés sur l'IA générative étaient en plein essor. Depuis, ces assistants ont connu de rapides évolutions et génèrent aujourd'hui moins d'hallucinations qu'à leurs débuts, c'est-à-dire au moment de la rédaction de ce tutoriel.</em></p>
 <p>Dans ce tutoriel, nous verrez comment :</p>
 <ul>
 <li><strong><a href="1_Installation/">1. Installation de l'assistant de code Github Copilot</a></strong></li>
@@ -756,22 +757,26 @@
 Sinon vous pouvez commencer directement <a href="2_PriseEnMainAssistant/">ici</a> pour prendre en main et faire vos premiers pas avec votre assistant de code préféré.</p>
 <h2 id="a-propos-de-lapproche-pedagogique">A propos de l'approche pédagogique<a class="headerlink" href="#a-propos-de-lapproche-pedagogique" title="Permanent link">&para;</a></h2>
 <p>Ce tutoriel a été conçu pour aider les étudiants à développer à la fois leurs compétences techniques et leur esprit critique dans l'usage d'un assistant de code basé sur l'IA. Il permet d'explorer, de réfléchir et de progresser avec l'IA.</p>
-<p>Cette approche pédagogique s'appuie sur un processus d'apprentissage en trois étapes :</p>
+<p>Pour développer leur esprit critique, cette approche pédagogique repose sur un processus d'apprentissage en trois étapes, itératif et incrémental :</p>
 <ol>
 <li>
 <p><strong>Expérimenter</strong><br />
-Explorez et testez l'assistant en suivant le tutoriel. Observez son comportement, explorez ses capacités… et identifiez ses limites.</p>
+<em>Explorer et tester l'assistant en suivant le tutoriel. Observer son comportement, explorer ses capacités et identifier ses limites.</em><br />
+L'étudiant se confronte à l'outil en observant son comportement et en découvrant ses forces et ses faiblesses par la <strong>pratique</strong>.<br />
+Certains scénarios ont été spécialement conçus pour mettre en évidence ses limites, notamment en cherchant à provoquer des <strong>hallucinations</strong> (réponses incorrectes ou trompeuses générées par les modèles de langage au cœur de l'IA générative.). Compte tenu du caractère probabiliste de l'outil, ces hallucinations peuvent ne pas apparaître systématiquement c'est pourquoi elles sont explicitement expliquées dans le tutoriel.</p>
 </li>
 <li>
-<p><strong>Analyser</strong>  <em>le code généré par l'IA</em>
-Prenez du recul grâce à un questionnaire réflexif. Réfléchissez à ce qui a bien fonctionné, à ce qui a posé problème, et pourquoi. Appuyez-vous sur votre propre expertise pour interpréter les suggestions de l'assistant.</p>
+<p><strong>Analyser</strong> <em>la réponse générée par l'IA</em><br />
+<em>Prendre du recul grâce à un questionnaire réflexif. Réfléchir à ce qui a bien fonctionné, à ce qui a posé problème, et pourquoi. S'appuyer sur sa propre expertise pour interpréter les suggestions de l'assistant.</em><br />
+Vient ensuite un temps de <strong><em>réflexion guidée</em></strong>, appuyée par un <strong><em>questionnaire</em></strong>, des explications fournies dans le tutoriel et la mobilisation de sa propre <strong><em>expertise</em></strong>. L'objectif ici est de passer d'une observation intuitive à une compréhension critique du fonctionnement (et des erreurs) de l'IA.</p>
 </li>
 <li>
-<p><strong>Ajuster</strong>  <em>les suggestions de l'IA</em><br />
-Affinez vos prompts, corrigez les erreurs et prenez des décisions éclairées. C'est le moment d'exercer votre libre arbitre et de rester pleinement acteur ou actrice de votre apprentissage.</p>
+<p><strong>Ajuster</strong> <em>la suggestion de l'IA</em><br />
+A<em>ffiner les prompts, corriger les erreurs et prendre des décisions éclairées.</em><br />
+Enfin, les étudiants sont invités à corriger, adapter, affiner les suggestions de l'IA en exerçant leur propre <strong><em>libre-arbitre</em></strong>. C'est ici que se joue l'<strong><em>autonomisation</em></strong> face à l'outil en restant pleinement acteur ou actrice de leur apprentissage.</p>
 </li>
 </ol>
-<p>Trois principes guident cette démarche : une <strong>intégration progressive de l'outil</strong>, une <strong>validation critique du code produit</strong>, et une <strong>autonomie construite</strong> à travers l'ajustement des suggestions, la réflexion sur les décisions prises, et l'apprentissage d'un usage raisonné et efficace des outils d'IA.</p>
+<p>Trois principes guident cette démarche : une <strong>intégration progressive de l'outil</strong>, une <strong>validation critique du code produit</strong>, et une <strong>autonomie</strong> construite à travers l'ajustement des suggestions, la réflexion sur les décisions prises, et l'apprentissage d'un usage raisonné et efficace des outils d'IA.</p>
 <h2 id="papier-de-recherche">Papier de recherche<a class="headerlink" href="#papier-de-recherche" title="Permanent link">&para;</a></h2>
 <p>Cette expérience pédagogique a fait l'objet d'un article présenté à la conférence <a href="https://iticse.acm.org/2025">ITiCSE 2025</a> :<br />
 <strong><a href="https://dl.acm.org/doi/10.1145/3724363.3729050">Developing Critical Thinking with AI Coding Assistants: An Educational Experience Focusing on Testing and Legacy Code</a></strong>.</p>
