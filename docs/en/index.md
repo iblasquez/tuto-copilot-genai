@@ -17,7 +17,8 @@ In this tutorial, you will learn how to:
 
 You will also find some [Useful Resources][Resources] that were consulted while writing this tutorial.
 
-This tutorial comes with a form. Feel free to [fill out this form](https://forms.gle/YquLZ7CMsmmgvwHUA) as you go through the tutorial.
+This tutorial comes with a reflective questionnaire.  
+Feel free to [download and fill out this form](../questionnaire/questionnaire_en.pdf) as you go through the tutorial.
 
 To get started, go to the [Installation][Installation] if you need to set up GitHub Copilot in your favorite IDE.
 If it's already installed, you can begin directly with [Getting Started with the assistant][part_2] using your preferred AI coding assistant.
